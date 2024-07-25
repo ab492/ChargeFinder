@@ -1,6 +1,10 @@
 package example.com.plugins
 
 import example.com.model.*
+import example.com.model.BFF.ChargingStationDetail.ChargingStationDetail
+import example.com.model.BFF.HomePage.HomeItem
+import example.com.model.BFF.Page
+import example.com.model.Data.ChargingStationRepository
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -11,46 +15,37 @@ fun Application.configureRouting() {
 
         route("/pages") {
             get {
-                val feature = Page(name = "Home", slug = "home")
-                val featureText = "Name: ${feature.name}, Slug: ${feature.slug}"
-                call.respondText(featureText)
+                val page = listOf(Page(name = "Home", slug = "home"))
+                call.respond(page)
             }
 
             get("/home") {
                 val chargingStations = ChargingStationRepository.allStations()
-                val homeItems = chargingStations.toHomeItems()
-
-                call.respondText(
-                    contentType = ContentType.parse("text/html"),
-                    text = homeItems.tasksAsTable()
-                )
-            }
-        }
-
-        get("/locations/{id}") {
-           val idAsText = call.parameters["id"]
-            if (idAsText == null) {
-                call.respond(HttpStatusCode.BadRequest)
-                return@get
+                val homeItems = chargingStations.map { HomeItem(it) }
+                call.respond(homeItems)
             }
 
-            try {
-                val location = ChargingStationRepository.stationById(id = idAsText)
-
-                if (location == null) {
-                    call.respond(HttpStatusCode.NotFound)
+            get("/chargingStationDetail/{id}") {
+                val idAsText = call.parameters["id"]
+                if (idAsText == null) {
+                    call.respond(HttpStatusCode.BadRequest)
                     return@get
                 }
 
-                call.respondText(
-                    contentType = ContentType.parse("text/html"),
-                    text = "Hello"
-                    )
-            } catch(ex: IllegalArgumentException) {
-                call.respond(HttpStatusCode.BadRequest)
-            }
+                try {
+                    val location = ChargingStationRepository.stationById(id = idAsText)
+                    if (location == null) {
+                        call.respond(HttpStatusCode.NotFound)
+                        return@get
+                    }
 
-            // TODO LEFT OFF HERE: NEED TO REPLACE HELLO WITH PROPER RESULT! 
+                    val chargingStationDetail = ChargingStationDetail(location)
+                    call.respond(chargingStationDetail)
+
+                } catch(ex: IllegalArgumentException) {
+                    call.respond(HttpStatusCode.BadRequest)
+                }
+            }
         }
     }
 }

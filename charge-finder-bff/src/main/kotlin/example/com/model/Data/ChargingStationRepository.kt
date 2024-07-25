@@ -1,4 +1,4 @@
-package example.com.model
+package example.com.model.Data
 
 object ChargingStationRepository {
     private val stations = listOf(
