@@ -12,10 +12,6 @@ import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
-        }
-
         route("/pages") {
             get {
                 val page = listOf(Page(name = "Home", slug = "home"))
