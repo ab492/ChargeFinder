@@ -9,9 +9,12 @@ data class HomeItem(
     val title: String,
     val href: String,
 ) {
-    constructor(chargingStation: ChargingStation) : this(
+    constructor(
+        chargingStation: ChargingStation,
+        detailHref: String
+        ) : this(
         id = chargingStation.id,
         title = chargingStation.locationName,
-        href = "/locations/${chargingStation.id}"
+        href = detailHref
     )
 }

@@ -11,6 +11,8 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
+    val chargingStationDetailRoute = "/chargingStationDetail"
+
     routing {
         route("/pages") {
             get {
@@ -20,21 +22,26 @@ fun Application.configureRouting() {
 
             get("/home") {
                 val chargingStations = ChargingStationRepository.allStations()
-                val homeItems = chargingStations.map { HomeItem(it) }
+                val homeItems = chargingStations.map {
+                    HomeItem(
+                        chargingStation = it,
+                        detailHref = "$chargingStationDetailRoute/${it.id}"
+                    )
+                }
                 call.respond(homeItems)
             }
 
-            get("/chargingStationDetail/{id}") {
+            get("$chargingStationDetailRoute/{id}") {
                 val idAsText = call.parameters["id"]
                 if (idAsText == null) {
-                    call.respond(HttpStatusCode.BadRequest)
+                    call.respond(HttpStatusCode.BadRequest, "Missing or invalid ID parameter")
                     return@get
                 }
 
                 try {
                     val location = ChargingStationRepository.stationById(id = idAsText)
                     if (location == null) {
-                        call.respond(HttpStatusCode.NotFound)
+                        call.respond(HttpStatusCode.NotFound, "Charging station not found")
                         return@get
                     }
 
@@ -42,7 +49,7 @@ fun Application.configureRouting() {
                     call.respond(chargingStationDetail)
 
                 } catch(ex: IllegalArgumentException) {
-                    call.respond(HttpStatusCode.BadRequest)
+                    call.respond(HttpStatusCode.BadRequest, "Invalid ID format")
                 }
             }
         }
