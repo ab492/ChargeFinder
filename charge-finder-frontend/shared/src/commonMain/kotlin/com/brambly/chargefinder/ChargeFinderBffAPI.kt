@@ -19,6 +19,10 @@ object ChargeFinderBffAPI {
         }
     }
 
+    suspend fun fetchPages(): List<Page> {
+        return httpClient.get("http://www.bramblytech.co.uk/pages").body()
+    }
+
     suspend fun fetchHome(): List<ListItem> {
         return httpClient.get("http://www.bramblytech.co.uk/pages/home").body()
     }

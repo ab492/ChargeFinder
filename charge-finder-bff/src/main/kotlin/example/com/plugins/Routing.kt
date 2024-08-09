@@ -1,10 +1,11 @@
 package example.com.plugins
 
-import example.com.model.*
-import example.com.model.BFF.ChargingStationDetail.ChargingStationDetail
-import example.com.model.BFF.HomePage.HomeItem
-import example.com.model.BFF.Page
+import example.com.model.bff.charging_station_detail.ChargingStationDetail
+import example.com.model.bff.homepage.HomeItem
+import example.com.model.bff.page.Page
 import example.com.model.Data.ChargingStationRepository
+import example.com.model.bff.navigation.*
+import example.com.model.bff.page.PageType
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -16,16 +17,20 @@ fun Application.configureRouting() {
     routing {
         route("/pages") {
             get {
-                val page = listOf(Page(name = "Home", slug = "home"))
+                val page = listOf(Page(name = "Home", slug = "home", pageType = PageType.LIST))
                 call.respond(page)
             }
 
             get("/home") {
                 val chargingStations = ChargingStationRepository.allStations()
                 val homeItems = chargingStations.map {
+                    val detailHref = "$chargingStationDetailRoute/${it.id}"
+
                     HomeItem(
                         chargingStation = it,
-                        detailHref = "$chargingStationDetailRoute/${it.id}"
+                        navigationAction = NavigationAction.NavigateTo(
+                            NavigationDestination.ChargingStationDetail(href = detailHref)
+                        )
                     )
                 }
                 call.respond(homeItems)

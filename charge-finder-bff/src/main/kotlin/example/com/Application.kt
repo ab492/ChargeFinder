@@ -1,5 +1,7 @@
 package example.com
 
+import example.com.plugins.configureRouting
+import example.com.plugins.configureSerialization
 import example.com.plugins.*
 import io.ktor.server.application.*
 

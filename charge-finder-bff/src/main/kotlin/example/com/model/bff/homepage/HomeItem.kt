@@ -1,20 +1,22 @@
-package example.com.model.BFF.HomePage
+package example.com.model.bff.homepage
 
 import example.com.model.Data.ChargingStation
+import example.com.model.bff.navigation.NavigationAction
 import kotlinx.serialization.Serializable
 
+// TODO: LEFT OF HERE TRYING TO ADD ACTION
 @Serializable
 data class HomeItem(
     val id: String,
     val title: String,
-    val href: String,
+    var navigationAction: NavigationAction
 ) {
     constructor(
         chargingStation: ChargingStation,
-        detailHref: String
+        navigationAction: NavigationAction
         ) : this(
         id = chargingStation.id,
         title = chargingStation.locationName,
-        href = detailHref
+        navigationAction = navigationAction
     )
 }

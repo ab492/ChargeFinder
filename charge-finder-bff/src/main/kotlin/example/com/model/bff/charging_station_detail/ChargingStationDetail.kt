@@ -1,4 +1,4 @@
-package example.com.model.BFF.ChargingStationDetail
+package example.com.model.bff.charging_station_detail
 
 import example.com.model.Data.ChargingStation
 import kotlinx.serialization.Serializable

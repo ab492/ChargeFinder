@@ -1,4 +1,4 @@
-package example.com.model.BFF.HomePage
+package example.com.model.bff.homepage
 
 import kotlinx.serialization.Serializable
 
