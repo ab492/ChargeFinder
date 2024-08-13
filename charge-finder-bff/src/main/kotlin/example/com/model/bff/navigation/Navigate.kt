@@ -1,16 +1,20 @@
 package example.com.model.bff.navigation
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-// TODO LEFT OF HERE TRYING TO MAKE THIS SERIALISABLE.
 @Serializable
+@SerialName("navigationDestination")
 sealed class NavigationDestination {
     @Serializable
+    @SerialName("chargingStationDetail")
     data class ChargingStationDetail(val href: String) : NavigationDestination()
 }
 
 @Serializable
-sealed class NavigationAction {
+@SerialName("action")
+sealed class Action {
     @Serializable
-    data class NavigateTo(val destination: NavigationDestination) : NavigationAction()
+    @SerialName("navigateTo")
+    data class NavigateTo(val destination: NavigationDestination) : Action()
 }

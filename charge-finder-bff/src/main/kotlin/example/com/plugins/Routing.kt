@@ -28,7 +28,7 @@ fun Application.configureRouting() {
 
                     HomeItem(
                         chargingStation = it,
-                        navigationAction = NavigationAction.NavigateTo(
+                        action = Action.NavigateTo(
                             NavigationDestination.ChargingStationDetail(href = detailHref)
                         )
                     )
