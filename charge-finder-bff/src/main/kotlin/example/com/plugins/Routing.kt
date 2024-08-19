@@ -8,6 +8,7 @@ import example.com.model.bff.navigation.*
 import example.com.model.bff.page.PageType
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
@@ -15,46 +16,48 @@ fun Application.configureRouting() {
     val chargingStationDetailRoute = "/chargingStationDetail"
 
     routing {
-        route("/pages") {
-            get {
-                val page = listOf(Page(name = "Home", slug = "home", pageType = PageType.LIST))
-                call.respond(page)
-            }
+        authenticate("auth-bearer") {
+            route("/pages") {
+                get {
+                    val page = listOf(Page(name = "Home", slug = "home", pageType = PageType.LIST))
+                    call.respond(page)
+                }
 
-            get("/home") {
-                val chargingStations = ChargingStationRepository.allStations()
-                val homeItems = chargingStations.map {
-                    val detailHref = "$chargingStationDetailRoute/${it.id}"
+                get("/home") {
+                    val chargingStations = ChargingStationRepository.allStations()
+                    val homeItems = chargingStations.map {
+                        val detailHref = "$chargingStationDetailRoute/${it.id}"
 
-                    HomeItem(
-                        chargingStation = it,
-                        action = Action.NavigateTo(
-                            NavigationDestination.ChargingStationDetail(href = detailHref)
+                        HomeItem(
+                            chargingStation = it,
+                            action = Action.NavigateTo(
+                                NavigationDestination.ChargingStationDetail(href = detailHref)
+                            )
                         )
-                    )
-                }
-                call.respond(homeItems)
-            }
-
-            get("$chargingStationDetailRoute/{id}") {
-                val idAsText = call.parameters["id"]
-                if (idAsText == null) {
-                    call.respond(HttpStatusCode.BadRequest, "Missing or invalid ID parameter")
-                    return@get
+                    }
+                    call.respond(homeItems)
                 }
 
-                try {
-                    val location = ChargingStationRepository.stationById(id = idAsText)
-                    if (location == null) {
-                        call.respond(HttpStatusCode.NotFound, "Charging station not found")
+                get("$chargingStationDetailRoute/{id}") {
+                    val idAsText = call.parameters["id"]
+                    if (idAsText == null) {
+                        call.respond(HttpStatusCode.BadRequest, "Missing or invalid ID parameter")
                         return@get
                     }
 
-                    val chargingStationDetail = ChargingStationDetail(location)
-                    call.respond(chargingStationDetail)
+                    try {
+                        val location = ChargingStationRepository.stationById(id = idAsText)
+                        if (location == null) {
+                            call.respond(HttpStatusCode.NotFound, "Charging station not found")
+                            return@get
+                        }
 
-                } catch(ex: IllegalArgumentException) {
-                    call.respond(HttpStatusCode.BadRequest, "Invalid ID format")
+                        val chargingStationDetail = ChargingStationDetail(location)
+                        call.respond(chargingStationDetail)
+
+                    } catch(ex: IllegalArgumentException) {
+                        call.respond(HttpStatusCode.BadRequest, "Invalid ID format")
+                    }
                 }
             }
         }

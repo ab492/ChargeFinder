@@ -8,8 +8,16 @@ struct ContentView: View {
 	var body: some View {
 		Text(greet)
             .onAppear {
-                api.fetchPages { page, error in
-                    print(page?.first?.pageType.asPageTypeSwift)
+//                api.fetchPages { page, error in
+//                    print(page?.first?.pageType.asPageTypeSwift)
+//                }
+                
+//                api.fetchList(slug: "home") { items, error in
+//                    print("ITEMS:\(items)")
+//                }
+//                
+                api.fetchDetail(href: "/chargingStationDetail/2") { detail, error in
+                    print("DETAIL: \(detail?.description_)")
                 }
             }
 	}
