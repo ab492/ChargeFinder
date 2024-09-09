@@ -13,11 +13,12 @@ func main() {
 
 	pages := router.Group("/pages")
 	{
-		pages.GET("", getPages)     // /pages
-		pages.GET("/home", getHome) // /pages/home
+		pages.GET("", getPages)                                           // /pages
+		pages.GET("/home", getHome)                                       // /pages/home
+		pages.GET("/chargingStationDetail/:id", getChargingStationDetail) // /pages/chargingStationDetail/{id}
 	}
 
-	router.Run("localhost:8080")
+	router.Run("0.0.0.0:8080")
 }
 
 func getPages(c *gin.Context) {
@@ -47,4 +48,27 @@ func getHome(c *gin.Context) {
 		homeItems = append(homeItems, homeItem)
 	}
 	c.IndentedJSON(http.StatusOK, homeItems)
+}
+
+func getChargingStationDetail(c *gin.Context) {
+	// Get the ID from the URL path parameters
+	id := c.Param("id")
+	if id == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Missing or invalid ID parameter"})
+		return
+	}
+
+	// Try to find the charging station by ID
+	station := models.StationByID(id)
+	if station == nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Charging station not found"})
+		return
+	}
+
+	chargingStationDetail := models.ChargingStationDetail{
+		Title:       station.LocationName,
+		Description: station.ID,
+	}
+
+	c.IndentedJSON(http.StatusOK, chargingStationDetail)
 }

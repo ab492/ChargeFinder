@@ -10,3 +10,12 @@ var stations = []ChargingStation{
 func AllStations() []ChargingStation {
 	return stations
 }
+
+func StationByID(id string) *ChargingStation {
+	for _, station := range stations {
+		if station.ID == id {
+			return &station
+		}
+	}
+	return nil
+}
