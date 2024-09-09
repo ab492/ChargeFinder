@@ -10,7 +10,13 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.GET("/pages", getPages)
+
+	pages := router.Group("/pages")
+	{
+		pages.GET("", getPages)     // /pages
+		pages.GET("/home", getHome) // /pages/home
+	}
+
 	router.Run("localhost:8080")
 }
 
@@ -18,9 +24,27 @@ func getPages(c *gin.Context) {
 	pages := []models.Page{
 		{
 			Name:     "Home",
-			Slug:     "home",
+			Href:     "/home",
 			PageType: models.List,
 		},
 	}
 	c.IndentedJSON(http.StatusOK, pages)
+}
+
+func getHome(c *gin.Context) {
+	chargingStations := models.AllStations()
+
+	var homeItems []models.HomeItem
+	for _, station := range chargingStations {
+		detailHref := "/chargingStationDetail/" + station.ID
+		homeItem := models.HomeItem{
+			ID:    station.ID,
+			Title: station.LocationName,
+			Action: models.NavigationDestination{
+				Href: detailHref,
+			},
+		}
+		homeItems = append(homeItems, homeItem)
+	}
+	c.IndentedJSON(http.StatusOK, homeItems)
 }
