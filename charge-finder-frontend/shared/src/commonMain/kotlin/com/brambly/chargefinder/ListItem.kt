@@ -5,25 +5,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ListItem (
     @SerialName("id")
-    val id: Int,
+    val id: String,
     @SerialName("title")
     val title: String,
-    @SerialName("action")
-    var action: Action
+    @SerialName("navigationDestination")
+    var navigationDestination: NavigationDestination
 )
 
 @Serializable
-@SerialName("navigationDestination")
-sealed class NavigationDestination {
-    @Serializable
-    @SerialName("chargingStationDetail")
-    data class ChargingStationDetail(val href: String) : NavigationDestination()
-}
-
-@Serializable
-@SerialName("action")
-sealed class Action {
-    @Serializable
-    @SerialName("navigateTo")
-    data class NavigateTo(val destination: NavigationDestination) : Action()
-}
+data class NavigationDestination (
+    @SerialName("href")
+    val href: String,
+)

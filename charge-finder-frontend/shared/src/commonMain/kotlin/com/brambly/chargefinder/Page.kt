@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Page(
     val name: String,
-    val slug: String,
-    val pageType: PageType
+    val pageType: PageType,
+    val href: String,
 )

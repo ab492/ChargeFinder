@@ -35,19 +35,11 @@ object ChargeFinderBffAPI {
     }
 
     // TODO CAN THESE BE MADE GENERIC?
-    suspend fun fetchList(slug: String): List<ListItem> {
-        return httpClient.get("$BASE_PATH/$slug").body()
+    suspend fun fetchList(href: String): List<ListItem> {
+        return httpClient.get("$BASE_PATH/$href").body()
     }
 
     suspend fun fetchDetail(href: String): ChargingStationDetail {
-        return httpClient.get("$BASE_PATH/$href").body() //FIX HREF SLASH
+        return httpClient.get("$BASE_PATH/$href").body()
     }
-
-//    suspend fun <T> fetchPage(href: String): T {
-//        return httpClient.get("$BASE_PATH/$href").body()
-//    }
-
-
-
-
 }
