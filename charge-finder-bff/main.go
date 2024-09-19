@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"charge-finder-bff/models"
+	"charge-finder-bff/models/bff"
 )
 
 func main() {
@@ -22,11 +23,11 @@ func main() {
 }
 
 func getPages(c *gin.Context) {
-	pages := []models.Page{
+	pages := []bff.Page{
 		{
 			Name:     "Home",
-			Href:     "/home",
-			PageType: models.List,
+			Href:     "home",
+			PageType: bff.List,
 		},
 	}
 	c.IndentedJSON(http.StatusOK, pages)
@@ -35,13 +36,13 @@ func getPages(c *gin.Context) {
 func getHome(c *gin.Context) {
 	chargingStations := models.AllStations()
 
-	var homeItems []models.HomeItem
+	var homeItems []bff.HomeItem
 	for _, station := range chargingStations {
-		detailHref := "/chargingStationDetail/" + station.ID
-		homeItem := models.HomeItem{
+		detailHref := "chargingStationDetail/" + station.ID
+		homeItem := bff.HomeItem{
 			ID:    station.ID,
 			Title: station.LocationName,
-			Action: models.NavigationDestination{
+			Action: bff.NavigationDestination{
 				Href: detailHref,
 			},
 		}
@@ -65,7 +66,7 @@ func getChargingStationDetail(c *gin.Context) {
 		return
 	}
 
-	chargingStationDetail := models.ChargingStationDetail{
+	chargingStationDetail := bff.ChargingStationDetail{
 		Title:       station.LocationName,
 		Description: station.ID,
 	}

@@ -1,4 +1,4 @@
-package models
+package bff
 
 type ChargingStationDetail struct {
 	Title       string `json:"title"`
