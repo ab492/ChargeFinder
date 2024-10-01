@@ -7,7 +7,6 @@ import io.ktor.client.request.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.URLProtocol
-import io.ktor.http.Url
 import kotlin.native.concurrent.ThreadLocal
 
 @ThreadLocal

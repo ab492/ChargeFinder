@@ -1,10 +1,27 @@
+# IntelliJ IDEA / Android Studio
 *.iml
-.gradle
-.idea
+.idea/
+
+# macOS specific
 .DS_Store
-build
-captures
-.externalNativeBuild
-.cxx
+
+# Gradle specific
+.gradle/
+.gradle-cache/
+build/
+buildSrc/build/
+
+# Kotlin/Multiplatform specific
+/.kotlin/
+bin/
+
+# Android specific
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local properties
 local.properties
-xcuserdata
+
+# Xcode specific (for iOS targets)
+xcuserdata/
