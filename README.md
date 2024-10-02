@@ -12,3 +12,4 @@ Inspired by [working with the garage door up](https://notes.andymatuschak.org/Wo
 ### Reading List
 https://developer.android.com/develop/ui/compose/mental-model#recomposition
 https://developer.android.com/topic/architecture
+https://developer.android.com/topic/libraries/architecture/livedata
