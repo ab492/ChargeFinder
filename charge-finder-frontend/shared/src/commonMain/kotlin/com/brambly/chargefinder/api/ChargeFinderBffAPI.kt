@@ -1,4 +1,7 @@
-package com.brambly.chargefinder
+package com.brambly.chargefinder.api
+import com.brambly.chargefinder.ChargingStationDetail
+import com.brambly.chargefinder.ListItem
+import com.brambly.chargefinder.Page
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
