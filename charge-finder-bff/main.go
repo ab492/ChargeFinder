@@ -14,23 +14,11 @@ func main() {
 
 	pages := router.Group("/pages")
 	{
-		pages.GET("", getPages)                                           // /pages
 		pages.GET("/home", getHome)                                       // /pages/home
 		pages.GET("/chargingStationDetail/:id", getChargingStationDetail) // /pages/chargingStationDetail/{id}
 	}
 
 	router.Run("0.0.0.0:8080")
-}
-
-func getPages(c *gin.Context) {
-	pages := []bff.Page{
-		{
-			Name:     "Home",
-			Href:     "home",
-			PageType: bff.List,
-		},
-	}
-	c.IndentedJSON(http.StatusOK, pages)
 }
 
 func getHome(c *gin.Context) {

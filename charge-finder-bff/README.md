@@ -1,0 +1,1 @@
+Run the backend locally with `go run .`.
