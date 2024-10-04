@@ -14,6 +14,7 @@ The goals of this project are the following:
 TODO
 
 ## Reading List
-https://developer.android.com/develop/ui/compose/mental-model#recomposition
-https://developer.android.com/topic/architecture
-https://developer.android.com/topic/libraries/architecture/livedata
+
+- https://developer.android.com/develop/ui/compose/mental-model#recomposition
+- https://developer.android.com/topic/architecture
+- https://developer.android.com/topic/libraries/architecture/livedata
