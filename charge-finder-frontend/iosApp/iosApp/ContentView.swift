@@ -3,13 +3,13 @@ import shared
 
 struct ContentView: View {
 	let greet = Greeting().greet()
-    let api = ChargeFinderBffAPI()
+    let api = ChargeFinderBffImpl()
 
 	var body: some View {
 		Text(greet)
             .onAppear {
-                api.fetchPages { page, error in
-                    print(page?.first?.pageType.asPageTypeSwift)
+                api.fetchHome { items, error in
+                    print("ITEMS:\(items)")
                 }
                 
 //                api.fetchList(href: "home") { items, error in
