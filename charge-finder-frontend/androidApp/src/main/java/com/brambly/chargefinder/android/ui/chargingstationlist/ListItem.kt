@@ -1,4 +1,4 @@
-package com.brambly.chargefinder.android.ui
+package com.brambly.chargefinder.android.ui.chargingstationlist
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme

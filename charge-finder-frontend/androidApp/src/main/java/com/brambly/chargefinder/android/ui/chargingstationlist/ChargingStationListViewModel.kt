@@ -1,4 +1,4 @@
-package com.brambly.chargefinder.android.ui
+package com.brambly.chargefinder.android.ui.chargingstationlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,6 +24,7 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
             try {
                 val chargingStations: List<ListItem> = api.fetchHome()
                 val listItems = chargingStations.map { it.title }
+                println("*** SUCCESS")
                 _uiState.update { currentState ->
                     currentState.copy(
                         chargingStations = listItems,
@@ -32,6 +33,7 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
                 }
             } catch (e: Exception) {
                 _uiState.update { currentState ->
+                    println("*** ERROR!")
                     currentState.copy(
                         chargingStations = emptyList(),
                         errorMessage = "Sorry, an error has occurred!"

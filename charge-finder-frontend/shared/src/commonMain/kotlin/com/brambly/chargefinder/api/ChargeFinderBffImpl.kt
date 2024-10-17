@@ -12,7 +12,7 @@ import io.ktor.http.URLProtocol
 import kotlin.native.concurrent.ThreadLocal
 
 class ChargeFinderBffImpl: ChargeFinderBff {
-    private val basePath = "/pages"
+    private val BASE_PATH = "/pages"
 
     private val httpClient = HttpClient {
         defaultRequest {
@@ -31,10 +31,10 @@ class ChargeFinderBffImpl: ChargeFinderBff {
     }
 
     override suspend fun fetchHome(): List<ListItem> {
-        return httpClient.get("$basePath/home").body()
+        return httpClient.get("$BASE_PATH/home").body()
     }
 
     override suspend fun fetchDetail(id: String): ChargingStationDetail {
-        return httpClient.get("$basePath/detail/$id").body()
+        return httpClient.get("$BASE_PATH/detail/$id").body()
     }
 }
