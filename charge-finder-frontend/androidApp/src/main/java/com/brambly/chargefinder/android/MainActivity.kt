@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.brambly.chargefinder.android
 
 import android.os.Bundle

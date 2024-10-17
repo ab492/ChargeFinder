@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFinderBffImpl()) : ViewModel() {
-    private val _uiState = MutableStateFlow(ChargingStationListUiState())
-    val uiState: StateFlow<ChargingStationListUiState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<UiState<List<String>>>(UiState.Loading())
+    val uiState: StateFlow<UiState<List<String>>> = _uiState.asStateFlow()
 
     init {
         fetchChargingStations()
@@ -24,21 +24,11 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
             try {
                 val chargingStations: List<ListItem> = api.fetchHome()
                 val listItems = chargingStations.map { it.title }
-                println("*** SUCCESS")
-                _uiState.update { currentState ->
-                    currentState.copy(
-                        chargingStations = listItems,
-                        errorMessage = null
-                    )
-                }
+                println(listItems)
+                _uiState.value = UiState.Loaded(listItems)
             } catch (e: Exception) {
-                _uiState.update { currentState ->
-                    println("*** ERROR!")
-                    currentState.copy(
-                        chargingStations = emptyList(),
-                        errorMessage = "Sorry, an error has occurred!"
-                    )
-                }
+                println(e.message)
+                _uiState.value = UiState.Error("Sorry, an error has occurred!")
             }
         }
     }

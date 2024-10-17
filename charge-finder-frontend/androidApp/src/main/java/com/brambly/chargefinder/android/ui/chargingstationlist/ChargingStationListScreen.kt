@@ -1,10 +1,13 @@
 package com.brambly.chargefinder.android.ui.chargingstationlist
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -31,24 +34,17 @@ fun ChargingStationListScreen(
             CenterAlignedTopAppBar(title = { Text("Home") })
         }
     ) { paddingValues ->
-        if (listState.chargingStations.isNotEmpty()) {
-            LazyColumn(
-                modifier = modifier
-                    .padding(paddingValues)
-                    .padding(vertical = 4.dp)
-                    .fillMaxSize()
-            ) {
-
-                items(items = listState.chargingStations) { item ->
-                    ListItem(title = item)
-                }
-            }
-        } else {
-            ErrorView(errorText = listState.errorMessage ?: "Default") {
+        Column(modifier = Modifier.padding(paddingValues)) {
+            when (val state = listState) {
+                is UiState.Loading -> CircularProgressIndicator()
+                is UiState.Loaded  -> ChargingStationListSuccess(items = state.data)
+                is UiState.Error -> Text(text = state.error)
             }
         }
     }
 }
+
+
 
 //@Preview
 //@Composable
