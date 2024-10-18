@@ -20,7 +20,7 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
     }
 
     fun fetchChargingStations() {
-        // TODO: loading state when fetching stations
+        _uiState.value = UiState.Loading()
         viewModelScope.launch {
             try {
                 val chargingStations: List<ListItem> = api.fetchHome()

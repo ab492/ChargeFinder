@@ -46,11 +46,3 @@ fun ChargingStationListScreen(
         }
     }
 }
-
-
-
-//@Preview
-//@Composable
-//fun ItemListPreview() {
-//    ChargingStationListScreen()
-//}
