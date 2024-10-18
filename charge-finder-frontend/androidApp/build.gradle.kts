@@ -48,4 +48,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation("androidx.activity:activity-compose:1.8.0")
     debugImplementation(libs.compose.ui.tooling)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.3")
+}
+
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
