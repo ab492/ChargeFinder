@@ -19,15 +19,14 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
         fetchChargingStations()
     }
 
-    private fun fetchChargingStations() {
+    fun fetchChargingStations() {
+        // TODO: loading state when fetching stations
         viewModelScope.launch {
             try {
                 val chargingStations: List<ListItem> = api.fetchHome()
                 val listItems = chargingStations.map { it.title }
-                println(listItems)
                 _uiState.value = UiState.Loaded(listItems)
             } catch (e: Exception) {
-                println(e.message)
                 _uiState.value = UiState.Error("Sorry, an error has occurred!")
             }
         }

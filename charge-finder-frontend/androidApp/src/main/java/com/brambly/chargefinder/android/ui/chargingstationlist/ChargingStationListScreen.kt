@@ -19,7 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.brambly.chargefinder.android.ui.reusable.ErrorView
+import com.brambly.chargefinder.android.ui.reusable.ErrorScreen
+import com.brambly.chargefinder.android.ui.reusable.LoadingScreen
 
 @ExperimentalMaterial3Api
 @Composable
@@ -36,9 +37,11 @@ fun ChargingStationListScreen(
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             when (val state = listState) {
-                is UiState.Loading -> CircularProgressIndicator()
+                is UiState.Loading -> LoadingScreen()
                 is UiState.Loaded  -> ChargingStationListSuccess(items = state.data)
-                is UiState.Error -> Text(text = state.error)
+                is UiState.Error -> ErrorScreen(errorText = state.error) {
+                    listViewModel.fetchChargingStations()
+                }
             }
         }
     }
