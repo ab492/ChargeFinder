@@ -6,20 +6,21 @@ struct ContentView: View {
     let api = ChargeFinderBffImpl()
 
 	var body: some View {
-		Text(greet)
-            .onAppear {
-                api.fetchHome { items, error in
-                    print("ITEMS:\(items)")
-                }
-                
-//                api.fetchList(href: "home") { items, error in
+        ChargingStationListView()
+//		Text(greet)
+//            .onAppear {
+//                api.fetchHome { items, error in
 //                    print("ITEMS:\(items)")
 //                }
 //                
-//                api.fetchDetail(href: "chargingStationDetail/2") { detail, error in
-//                    print("DETAIL: \(detail?.description_)")
-//                }
-            }
+////                api.fetchList(href: "home") { items, error in
+////                    print("ITEMS:\(items)")
+////                }
+////                
+////                api.fetchDetail(href: "chargingStationDetail/2") { detail, error in
+////                    print("DETAIL: \(detail?.description_)")
+////                }
+//            }
 	}
 }
 
