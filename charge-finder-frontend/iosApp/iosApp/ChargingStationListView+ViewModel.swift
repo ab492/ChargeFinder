@@ -7,23 +7,6 @@
 //
 import Foundation
 
-import shared
-
-protocol ChargeFinderApi {
-    func fetch() async throws -> [ChargingStationListItem]
-    
-}
-
-final class ChargeFinderApiImpl: ChargeFinderApi {
-    private let sharedApi = ChargeFinderBffImpl()
-    
-    func fetch() async throws -> [ChargingStationListItem] {
-        try await sharedApi.fetchHome().map {
-            ChargingStationListItem(id: $0.id, title: $0.title)
-        }
-    }
-}
-
 extension ChargingStationListView {
     @Observable final class ViewModel {
         private(set) var state = State.loading

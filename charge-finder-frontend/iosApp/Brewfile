@@ -1,0 +1,4 @@
+tap "homebrew/cask"
+
+# Mint is used for managing command line tools via the Mintfile
+brew "mint"
