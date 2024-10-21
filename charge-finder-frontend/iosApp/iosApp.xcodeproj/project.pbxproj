@@ -11,11 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		AD510B0E2CC2A6FB0074E95A /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B0C2CC2A6FB0074E95A /* iosAppTests.swift */; };
-		AD510B102CC2A8F60074E95A /* ChargingStationListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B0F2CC2A8F60074E95A /* ChargingStationListViewModelTests.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
-		AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTestss.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTestss.swift */; };
+		AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTests.swift */; };
 		AD510B182CC2BEA20074E95A /* ChargingStationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B172CC2BE980074E95A /* ChargingStationListItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,11 +48,9 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD510B0C2CC2A6FB0074E95A /* iosAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppTests.swift; sourceTree = "<group>"; };
-		AD510B0F2CC2A8F60074E95A /* ChargingStationListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListViewModelTests.swift; sourceTree = "<group>"; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
 		AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListView+ViewModel.swift"; sourceTree = "<group>"; };
-		AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTestss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListViewModelTestss.swift; sourceTree = "<group>"; };
+		AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListViewModelTests.swift; sourceTree = "<group>"; };
 		AD510B172CC2BE980074E95A /* ChargingStationListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,9 +124,7 @@
 		AD510B0D2CC2A6FB0074E95A /* iosAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD510B0C2CC2A6FB0074E95A /* iosAppTests.swift */,
-				AD510B0F2CC2A8F60074E95A /* ChargingStationListViewModelTests.swift */,
-				AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTestss.swift */,
+				AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTests.swift */,
 			);
 			path = iosAppTests;
 			sourceTree = "<group>";
@@ -271,9 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD510B102CC2A8F60074E95A /* ChargingStationListViewModelTests.swift in Sources */,
-				AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTestss.swift in Sources */,
-				AD510B0E2CC2A6FB0074E95A /* iosAppTests.swift in Sources */,
+				AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,7 +38,7 @@ extension ChargingStationListView {
                 let chargingStations = try await api.fetch()
                 self.state = .loaded(chargingStations)
             } catch {
-                print("hmm")
+                self.state = .error("Something went wrong")
             }
             
         }
@@ -48,4 +48,5 @@ extension ChargingStationListView {
 enum State: Equatable {
     case loading
     case loaded([ChargingStationListItem])
+    case error(String)
 }
