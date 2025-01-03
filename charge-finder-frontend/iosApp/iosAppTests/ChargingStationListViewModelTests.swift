@@ -9,7 +9,7 @@
 import Testing
 @testable import iosApp
 
-struct ChargingStationListViewModelTestss {
+struct ChargingStationListViewModelTests {
     
     private let mockApi: MockChargeFinderApi
     private let sut: ChargingStationListView.ViewModel
