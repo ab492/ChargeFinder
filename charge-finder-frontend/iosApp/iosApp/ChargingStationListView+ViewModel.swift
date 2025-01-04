@@ -4,9 +4,22 @@ import Observation
 extension ChargingStationListView {
     @Observable @MainActor
     final class ViewModel {
+        
+        // MARK: - Types
+
+        enum State: Equatable {
+            case loading
+            case loaded([ChargingStationListItem])
+            case error(String)
+        }
+        
+        // MARK: - Properties
+
         private(set) var state = State.loading
         private let api: ChargeFinderApi
         
+        // MARK: - Init
+
         init(api: ChargeFinderApi) {
             self.api = api
         }
@@ -14,6 +27,8 @@ extension ChargingStationListView {
         convenience init() {
             self.init(api: ChargeFinderApiImpl())
         }
+        
+        // MARK: - Public Methods
         
         func fetchChargingStations() async {
             do {
@@ -25,10 +40,4 @@ extension ChargingStationListView {
             
         }
     }
-}
-
-enum State: Equatable {
-    case loading
-    case loaded([ChargingStationListItem])
-    case error(String)
 }
