@@ -1,10 +1,3 @@
-//
-//  ChargeFinderApi.swift
-//  iosApp
-//
-//  Created by Andy Brown on 21/10/2024.
-//  Copyright © 2024 orgName. All rights reserved.
-//
 import shared
 
 // sourcery: AutoMockable
@@ -17,8 +10,10 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
     private let sharedApi = ChargeFinderBffImpl()
     
     func fetch() async throws -> [ChargingStationListItem] {
-        try await sharedApi.fetchHome().map {
-            ChargingStationListItem(id: $0.id, title: $0.title)
-        }
+        try await Task { @MainActor in // Calling Kotlin suspend function must occur from main thread.
+            try await sharedApi.fetchHome().map {
+                ChargingStationListItem(id: $0.id, title: $0.title)
+            }
+        }.value
     }
 }
