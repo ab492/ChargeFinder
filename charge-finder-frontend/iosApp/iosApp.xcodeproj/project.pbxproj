@@ -13,6 +13,7 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */; };
 		AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */; };
+		AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
 		AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTests.swift */; };
@@ -54,6 +55,7 @@
 		AD0EA1362D2908A4006CEFC6 /* iosApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iosApp.xctestplan; sourceTree = SOURCE_ROOT; };
 		AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListSuccess.swift; sourceTree = "<group>"; };
 		AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListItem+Mock.swift"; sourceTree = "<group>"; };
+		AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
 		AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -112,15 +114,13 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				AD510B1D2CC62BF10074E95A /* Services */,
-				AD510B172CC2BE980074E95A /* ChargingStationListItem.swift */,
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
-				AD510B112CC2A9370074E95A /* ChargingStationListView.swift */,
-				AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */,
-				AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */,
-				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				7555FF82242A565900829871 /* ContentView.swift */,
+				AD3F0F1B2D2BB56800B10E4B /* Resources */,
+				AD510B1D2CC62BF10074E95A /* Services */,
+				AD3F0F1A2D2BB55C00B10E4B /* UI */,
+				AD3F0F1C2D2BB59300B10E4B /* Models */,
+				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
@@ -131,6 +131,33 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD3F0F1A2D2BB55C00B10E4B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AD510B112CC2A9370074E95A /* ChargingStationListView.swift */,
+				AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */,
+				AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */,
+				AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AD3F0F1B2D2BB56800B10E4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD3F0F1C2D2BB59300B10E4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD510B172CC2BE980074E95A /* ChargingStationListItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AD510B0D2CC2A6FB0074E95A /* iosAppTests */ = {
@@ -309,6 +336,7 @@
 				AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */,
 				AD510B182CC2BEA20074E95A /* ChargingStationListItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
