@@ -11,6 +11,8 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */; };
+		AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
 		AD510B162CC2B52F0074E95A /* ChargingStationListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B152CC2B52F0074E95A /* ChargingStationListViewModelTests.swift */; };
@@ -50,6 +52,8 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD0EA1362D2908A4006CEFC6 /* iosApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iosApp.xctestplan; sourceTree = SOURCE_ROOT; };
+		AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListSuccess.swift; sourceTree = "<group>"; };
+		AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListItem+Mock.swift"; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
 		AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
+				AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				AD510B112CC2A9370074E95A /* ChargingStationListView.swift */,
+				AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */,
 				AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -295,7 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */,
 				AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */,
 				AD510B1F2CC62C200074E95A /* ChargeFinderApi.swift in Sources */,
 				AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */,
