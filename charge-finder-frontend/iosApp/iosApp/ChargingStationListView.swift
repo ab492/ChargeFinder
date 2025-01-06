@@ -20,5 +20,5 @@ struct ChargingStationListView: View {
 }
 
 #Preview {
-    ChargingStationListView()
+    ChargingStationListView(viewModel: .init())
 }
