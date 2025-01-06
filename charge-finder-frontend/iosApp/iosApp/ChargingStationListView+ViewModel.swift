@@ -1,15 +1,9 @@
 import Foundation
 import Observation
 
-@MainActor
-protocol ChargingStationListViewModel {
-    var state: ChargingStationListView.ViewModel.State { get }
-    func fetchChargingStations() async
-}
-
 extension ChargingStationListView {
     @Observable @MainActor
-    final class ViewModel: ChargingStationListViewModel {
+    final class ViewModel {
         
         // MARK: - Types
 

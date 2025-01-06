@@ -18,7 +18,3 @@ struct ChargingStationListView: View {
         .task { await viewModel.fetchChargingStations() }
     }
 }
-
-#Preview {
-    ChargingStationListView(viewModel: .init())
-}
