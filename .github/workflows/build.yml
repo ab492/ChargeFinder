@@ -21,4 +21,5 @@ jobs:
     - name: Show current version of Xcode
       run: xcodebuild -version
     - name: Run tests
-      run: charge-finder-frontend/iosApp/run_tests.sh
+      working-directory: charge-finder-frontend/iosApp
+      run: ./run_tests.sh
