@@ -9,6 +9,7 @@
 import Testing
 @testable import iosApp
 
+@MainActor
 struct ChargingStationListViewModelTests {
     
     private let mockApi: MockChargeFinderApi
