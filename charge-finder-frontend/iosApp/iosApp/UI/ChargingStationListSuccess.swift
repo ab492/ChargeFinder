@@ -5,7 +5,11 @@ struct ChargingStationListSuccess: View {
     
     var body: some View {
         List(chargingStations) { station in
-            Text(station.title)
+            NavigationLink {
+                Text("Detail Screen")
+            } label: {
+                Text(station.title)
+            }
         }
         
     }
