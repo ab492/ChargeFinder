@@ -1,6 +1,6 @@
 import Foundation
 
-struct ChargingStationListItem: Equatable, Identifiable {
+struct ChargingStationListItem: Equatable, Identifiable, Hashable {
     let id: String
     let title: String
 }

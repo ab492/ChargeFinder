@@ -9,9 +9,7 @@ struct ChargingStationListView: View {
                 switch viewModel.state {
                 case .loading: ProgressView()
                 case .loaded(let items):
-                    ChargingStationListSuccess(chargingStations: items) { station in
-                        print("Station: \(station)")
-                        viewModel.chargingStationTapped(station: station) }
+                    ChargingStationListSuccess(chargingStations: items)
                 case .error(let error): ErrorView(
                     errorText: error,
                     action: {
@@ -21,12 +19,9 @@ struct ChargingStationListView: View {
                     })
                 }
             }
-            .navigationDestination(for: ViewModel.Destination.self) { destination in
-                  switch destination {
-                  case .detail:
-                      Text("Hello")
-                  }
-              }
+            .navigationDestination(for: ChargingStationListItem.self, destination: { station in
+                ChargingStationDetailView()
+            })
             .navigationTitle("Charging Stations")
         }
         .task { await viewModel.fetchChargingStations() }

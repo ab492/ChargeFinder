@@ -45,18 +45,6 @@ struct ChargingStationListViewModelTests {
         
         #expect(sut.state == .error("Something went wrong"))
     }
-    
-    @Test func initialDestinationIsNil() {
-        #expect(sut.destination == nil)
-    }
-    
-    @Test func selectingChargingStationItem_updatesDestination() {
-        let item = ChargingStationListItem(id: "123", title: "Dummy Title")
-        
-        sut.chargingStationTapped(station: item)
-        
-        #expect(sut.destination == .detail)
-    }
 }
 
 final private class MockChargeFinderApi: ChargeFinderApi {

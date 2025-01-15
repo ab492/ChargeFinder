@@ -2,14 +2,12 @@ import SwiftUI
 
 struct ChargingStationListSuccess: View {
     let chargingStations: [ChargingStationListItem]
-    let onChargingStationSelected: (ChargingStationListItem) -> Void
     
     var body: some View {
         List(chargingStations) { station in
-            Button {
-                onChargingStationSelected(station)
-            } label: {
+            NavigationLink(value: station) {
                 Text(station.title)
+                
             }
         }
     }
@@ -17,7 +15,6 @@ struct ChargingStationListSuccess: View {
 
 #Preview {
     ChargingStationListSuccess(
-        chargingStations: [.mock, .mock, .mock],
-        onChargingStationSelected: { _ in 
-        })
+        chargingStations: [.mock, .mock, .mock]
+    )
 }

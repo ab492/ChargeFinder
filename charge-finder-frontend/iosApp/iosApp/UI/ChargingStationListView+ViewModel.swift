@@ -13,21 +13,15 @@ extension ChargingStationListView {
             case error(String)
         }
         
-        enum Destination {
-            case detail
-        }
-        
         // MARK: - Properties
 
         private(set) var state = State.loading
-        private(set) var destination: Destination?
         private let api: ChargeFinderApi
         
         // MARK: - Init
 
         init(api: ChargeFinderApi) {
             self.api = api
-            self.destination = nil
         }
         
         convenience init() {
@@ -43,10 +37,6 @@ extension ChargingStationListView {
             } catch {
                 self.state = .error("Something went wrong")
             }
-        }
-        
-        func chargingStationTapped(station: ChargingStationListItem) {
-            self.destination = .detail
         }
     }
 }
