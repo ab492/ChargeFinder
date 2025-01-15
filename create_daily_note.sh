@@ -11,3 +11,5 @@ FILENAME="${TARGET_DIR}/${TODAY}.md"
 touch "$FILENAME"
 
 echo "Daily note created: $FILENAME"
+
+open "$FILENAME"
