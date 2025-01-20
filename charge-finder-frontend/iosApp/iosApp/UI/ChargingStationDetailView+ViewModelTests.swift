@@ -11,6 +11,10 @@ import Testing
 
 struct ChargingStationDetailViewModelTests {
     let mock: ChargeFinderApiMock
+
+    private func makeSut(id: String = "dummy_id") -> ChargingStationDetailView.ViewModel {
+        ChargingStationDetailView.ViewModel(id: id, api: mock)
+    }
     
     init() {
         self.mock = ChargeFinderApiMock()
@@ -20,14 +24,14 @@ struct ChargingStationDetailViewModelTests {
     
     @Test func initialStateIsLoading() async throws {
         
-        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+        let sut = makeSut()
         
         #expect(sut.state == .loading)
         
     }
     
     @Test func fetchDetail_callsTheApi() async throws {
-        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+        let sut = makeSut()
 
         await sut.fetch()
         
@@ -36,7 +40,7 @@ struct ChargingStationDetailViewModelTests {
     
     @Test func givenApiReturnsDetail_stateIsUpdatedToLoaded() async {
         mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Some Test Title", description: "Some Test Description")
-        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+        let sut = makeSut()
 
         await sut.fetch()
         
@@ -45,7 +49,7 @@ struct ChargingStationDetailViewModelTests {
     
     @Test func givenApiThrowsAnError_stateIsUpdatedToError() async {
         mock.fetchChargingStationDetailIdStringChargingStationDetailThrowableError = TestError.dummyError
-        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+        let sut = makeSut()
         
         await sut.fetch()
         
