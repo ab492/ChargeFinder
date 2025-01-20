@@ -18,3 +18,7 @@ I'm using evolutionary design while building this. You can see my current progre
 - https://developer.android.com/develop/ui/compose/mental-model#recomposition
 - https://developer.android.com/topic/architecture
 - https://developer.android.com/topic/libraries/architecture/livedata
+
+### App Icon
+
+You can find the source for the app icon [here](https://icon.kitchen/i/H4sIAAAAAAAAAzWPwQ6CMAyG36VeOQDBGLhy8AW4GWPK1s3FwsgGJobw7nYop6V%2Fvv9bu8IbeaEIzQoaw6t70kDQGORIGfS2%2B0wygg2oHY0zpOx6DNJRnn0ohDjluarxIsAelb%2BoNFUvEY6WRVOdtwyMbdlNGPZ6JHlAk8GFk9wpP0pATGoOTj0UBpBOj9pSm7xJS3WhCy20OdZTf6Ogg9cLp3tu8qsO3iXQ%2BQj37QtFNv4G7AAAAA%3D%3D).
