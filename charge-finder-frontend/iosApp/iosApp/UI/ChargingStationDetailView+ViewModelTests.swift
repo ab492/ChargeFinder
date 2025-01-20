@@ -23,19 +23,18 @@ struct ChargingStationDetailViewModelTests {
     }
     
     @Test func initialStateIsLoading() async throws {
-        
         let sut = makeSut()
         
         #expect(sut.state == .loading)
-        
     }
     
-    @Test func fetchDetail_callsTheApi() async throws {
-        let sut = makeSut()
+    @Test func fetchDetail_callsTheApiOnceWithTheCorrectId() async throws {
+        let sut = makeSut(id: "some-test-id")
 
         await sut.fetch()
         
         #expect(mock.fetchChargingStationDetailIdStringChargingStationDetailCallsCount == 1)
+        #expect(mock.fetchChargingStationDetailIdStringChargingStationDetailReceivedId == "some-test-id")
     }
     
     @Test func givenApiReturnsDetail_stateIsUpdatedToLoaded() async {
