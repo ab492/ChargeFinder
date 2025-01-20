@@ -1,27 +1,20 @@
-//
-//  ChargingStationDetailViewModelTests.swift
-//  iosAppTests
-//
-//  Created by Andy Brown on 20/01/2025.
-//  Copyright © 2025 orgName. All rights reserved.
-//
-
 import Testing
 @testable import iosApp
 
 struct ChargingStationDetailViewModelTests {
+    
+    // MARK: - Properties and Init
+
     let mock: ChargeFinderApiMock
 
-    private func makeSut(id: String = "dummy_id") -> ChargingStationDetailView.ViewModel {
-        ChargingStationDetailView.ViewModel(id: id, api: mock)
-    }
-    
     init() {
         self.mock = ChargeFinderApiMock()
         self.mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Dummy Title", description: "Dummy Description")
         
     }
     
+    // MARK: - Tests
+
     @Test func initialStateIsLoading() async throws {
         let sut = makeSut()
         
@@ -53,5 +46,11 @@ struct ChargingStationDetailViewModelTests {
         await sut.fetch()
         
         #expect(sut.state == .error("Something went wrong"))
+    }
+    
+    // MARK: - Helpers
+
+    private func makeSut(id: String = "dummy_id") -> ChargingStationDetailView.ViewModel {
+        ChargingStationDetailView.ViewModel(id: id, api: mock)
     }
 }
