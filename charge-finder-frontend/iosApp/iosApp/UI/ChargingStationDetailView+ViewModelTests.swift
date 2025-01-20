@@ -10,13 +10,28 @@ import Testing
 @testable import iosApp
 
 struct ChargingStationDetailViewModelTests {
-
-    @Test func test() async throws {
-        let mock = ChargeFinderApiMock()
-        let sut = ChargingStationDetailView.ViewModel()
+    let mock: ChargeFinderApiMock
+    
+    init() {
+        self.mock = ChargeFinderApiMock()
+        self.mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Dummy Title", description: "Dummy Description")
+        
+    }
+    
+    @Test func initialStateIsLoading() async throws {
+        
+        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
         
         #expect(sut.state == .loading)
         
+    }
+    
+    @Test func fetchDetail_callsTheApi() async throws {
+        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+
+        await sut.fetch()
+        
+        #expect(mock.fetchChargingStationDetailIdStringChargingStationDetailCallsCount == 1)
     }
 
 }
