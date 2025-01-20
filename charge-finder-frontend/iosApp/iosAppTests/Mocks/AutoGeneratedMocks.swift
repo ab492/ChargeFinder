@@ -64,5 +64,31 @@ class ChargeFinderApiMock: ChargeFinderApi {
         }
     }
 
+    //MARK: - fetchChargingStationDetail
+
+    var fetchChargingStationDetailIdStringChargingStationDetailThrowableError: (any Error)?
+    var fetchChargingStationDetailIdStringChargingStationDetailCallsCount = 0
+    var fetchChargingStationDetailIdStringChargingStationDetailCalled: Bool {
+        return fetchChargingStationDetailIdStringChargingStationDetailCallsCount > 0
+    }
+    var fetchChargingStationDetailIdStringChargingStationDetailReceivedId: (String)?
+    var fetchChargingStationDetailIdStringChargingStationDetailReceivedInvocations: [(String)] = []
+    var fetchChargingStationDetailIdStringChargingStationDetailReturnValue: ChargingStationDetail!
+    var fetchChargingStationDetailIdStringChargingStationDetailClosure: ((String) async throws -> ChargingStationDetail)?
+
+    func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail {
+        fetchChargingStationDetailIdStringChargingStationDetailCallsCount += 1
+        fetchChargingStationDetailIdStringChargingStationDetailReceivedId = id
+        fetchChargingStationDetailIdStringChargingStationDetailReceivedInvocations.append(id)
+        if let error = fetchChargingStationDetailIdStringChargingStationDetailThrowableError {
+            throw error
+        }
+        if let fetchChargingStationDetailIdStringChargingStationDetailClosure = fetchChargingStationDetailIdStringChargingStationDetailClosure {
+            return try await fetchChargingStationDetailIdStringChargingStationDetailClosure(id)
+        } else {
+            return fetchChargingStationDetailIdStringChargingStationDetailReturnValue
+        }
+    }
+
 
 }

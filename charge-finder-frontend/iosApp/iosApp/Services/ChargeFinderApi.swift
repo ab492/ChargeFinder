@@ -3,7 +3,7 @@ import shared
 // sourcery: AutoMockable
 protocol ChargeFinderApi {
     func fetchChargingStationList() async throws -> [ChargingStationListItem]
-    
+    func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail
 }
 
 final class ChargeFinderApiImpl: ChargeFinderApi {

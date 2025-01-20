@@ -1,11 +1,3 @@
-//
-//  ChargingStationListViewModelTestss.swift
-//  iosAppTests
-//
-//  Created by Andy Brown on 18/10/2024.
-//  Copyright © 2024 orgName. All rights reserved.
-//
-
 import Testing
 @testable import iosApp
 
@@ -63,6 +55,10 @@ final private class MockChargeFinderApi: ChargeFinderApi {
         } else {
             return []
         }
+    }
+    
+    func fetchChargingStationDetail(id: String) async throws -> iosApp.ChargingStationDetail {
+        fatalError("Not implemented")
     }
 }
 
