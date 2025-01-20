@@ -1,10 +1,21 @@
 package models
 
+var allImageUrls = []string{
+	"https://images.unsplash.com/photo-1600490819528-42405785433a",
+	"https://images.unsplash.com/photo-1669349412975-a9dd0d2292ee",
+	"https://images.unsplash.com/photo-1605152276919-a5fd954f2be5",
+	"https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b",
+	"https://images.unsplash.com/photo-1703860271482-16fd57dc35ca",
+	"https://images.unsplash.com/photo-1635451048957-3beb7175f57f",
+	"https://images.unsplash.com/photo-1650452233063-8f308616b729",
+	"https://images.unsplash.com/photo-1652252421025-0392a97129a3",
+}
+
 var stations = []ChargingStation{
-	{ID: "1", LocationName: "Location 1"},
-	{ID: "2", LocationName: "Location 2"},
-	{ID: "3", LocationName: "Location 3"},
-	{ID: "4", LocationName: "Location 4"},
+	{ID: "1", LocationName: "Location 1", ImageUrls: allImageUrls},
+	{ID: "2", LocationName: "Location 2", ImageUrls: allImageUrls},
+	{ID: "3", LocationName: "Location 3", ImageUrls: allImageUrls},
+	{ID: "4", LocationName: "Location 4", ImageUrls: allImageUrls},
 }
 
 func AllStations() []ChargingStation {

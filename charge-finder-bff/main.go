@@ -57,6 +57,7 @@ func getChargingStationDetail(c *gin.Context) {
 	chargingStationDetail := bff.ChargingStationDetail{
 		Title:       station.LocationName,
 		Description: station.ID,
+		ImageUrls: station.ImageUrls,
 	}
 
 	c.IndentedJSON(http.StatusOK, chargingStationDetail)
