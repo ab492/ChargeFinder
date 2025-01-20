@@ -42,25 +42,25 @@ class ChargeFinderApiMock: ChargeFinderApi {
 
 
 
-    //MARK: - fetch
+    //MARK: - fetchChargingStationList
 
-    var fetchChargingStationListItemThrowableError: (any Error)?
-    var fetchChargingStationListItemCallsCount = 0
-    var fetchChargingStationListItemCalled: Bool {
-        return fetchChargingStationListItemCallsCount > 0
+    var fetchChargingStationListChargingStationListItemThrowableError: (any Error)?
+    var fetchChargingStationListChargingStationListItemCallsCount = 0
+    var fetchChargingStationListChargingStationListItemCalled: Bool {
+        return fetchChargingStationListChargingStationListItemCallsCount > 0
     }
-    var fetchChargingStationListItemReturnValue: [ChargingStationListItem]!
-    var fetchChargingStationListItemClosure: (() async throws -> [ChargingStationListItem])?
+    var fetchChargingStationListChargingStationListItemReturnValue: [ChargingStationListItem]!
+    var fetchChargingStationListChargingStationListItemClosure: (() async throws -> [ChargingStationListItem])?
 
     func fetchChargingStationList() async throws -> [ChargingStationListItem] {
-        fetchChargingStationListItemCallsCount += 1
-        if let error = fetchChargingStationListItemThrowableError {
+        fetchChargingStationListChargingStationListItemCallsCount += 1
+        if let error = fetchChargingStationListChargingStationListItemThrowableError {
             throw error
         }
-        if let fetchChargingStationListItemClosure = fetchChargingStationListItemClosure {
-            return try await fetchChargingStationListItemClosure()
+        if let fetchChargingStationListChargingStationListItemClosure = fetchChargingStationListChargingStationListItemClosure {
+            return try await fetchChargingStationListChargingStationListItemClosure()
         } else {
-            return fetchChargingStationListItemReturnValue
+            return fetchChargingStationListChargingStationListItemReturnValue
         }
     }
 

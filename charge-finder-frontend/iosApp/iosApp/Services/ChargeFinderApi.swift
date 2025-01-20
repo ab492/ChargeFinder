@@ -16,4 +16,11 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
             }
         }.value
     }
+    
+    func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail {
+        try await Task { @MainActor in
+            let detail = try await sharedApi.fetchDetail(id: id)
+            return ChargingStationDetail(title: detail.title, description: detail.description)
+        }.value
+    }
 }
