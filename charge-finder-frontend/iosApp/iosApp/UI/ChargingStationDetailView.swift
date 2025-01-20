@@ -12,9 +12,3 @@ struct ChargingStationDetailView: View {
     ChargingStationDetailView()
 }
 
-extension ChargingStationDetailView {
-    @Observable
-    class ViewModel {
-        let text = "Charging Station Detail"
-    }
-}

@@ -18,7 +18,7 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
     }
     
     func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail {
-        try await Task { @MainActor in
+        try await Task { @MainActor in  // Calling Kotlin suspend function must occur from main thread.
             let detail = try await sharedApi.fetchDetail(id: id)
             return ChargingStationDetail(title: detail.title, description: detail.description)
         }.value
