@@ -28,8 +28,9 @@ func getHome(c *gin.Context) {
 	for _, station := range chargingStations {
 		detailHref := "chargingStationDetail/" + station.ID
 		homeItem := bff.HomeItem{
-			ID:    station.ID,
-			Title: station.LocationName,
+			ID:      station.ID,
+			Title:   station.LocationName,
+			Details: station.Address,
 			Action: bff.NavigationDestination{
 				Href: detailHref,
 			},
@@ -56,8 +57,8 @@ func getChargingStationDetail(c *gin.Context) {
 
 	chargingStationDetail := bff.ChargingStationDetail{
 		Title:       station.LocationName,
-		Description: station.ID,
-		ImageUrls: station.ImageUrls,
+		Description: station.Address,
+		ImageUrls:   station.ImageUrls,
 	}
 
 	c.IndentedJSON(http.StatusOK, chargingStationDetail)
