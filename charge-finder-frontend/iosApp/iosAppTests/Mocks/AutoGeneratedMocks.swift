@@ -52,7 +52,7 @@ class ChargeFinderApiMock: ChargeFinderApi {
     var fetchChargingStationListItemReturnValue: [ChargingStationListItem]!
     var fetchChargingStationListItemClosure: (() async throws -> [ChargingStationListItem])?
 
-    func fetch() async throws -> [ChargingStationListItem] {
+    func fetchChargingStationList() async throws -> [ChargingStationListItem] {
         fetchChargingStationListItemCallsCount += 1
         if let error = fetchChargingStationListItemThrowableError {
             throw error

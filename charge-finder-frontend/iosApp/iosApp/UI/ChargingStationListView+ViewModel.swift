@@ -32,7 +32,7 @@ extension ChargingStationListView {
         
         func fetchChargingStations() async {
             do {
-                let chargingStations = try await api.fetch()
+                let chargingStations = try await api.fetchChargingStationList()
                 self.state = .loaded(chargingStations)
             } catch {
                 self.state = .error("Something went wrong")

@@ -51,7 +51,7 @@ final private class MockChargeFinderApi: ChargeFinderApi {
     var fetchCallCount = 0
     var resultToReturn: Result<[ChargingStationListItem], Error>?
 
-    func fetch() async throws -> [ChargingStationListItem] {
+    func fetchChargingStationList() async throws -> [ChargingStationListItem] {
         fetchCallCount += 1
         if let resultToReturn {
             switch resultToReturn {
