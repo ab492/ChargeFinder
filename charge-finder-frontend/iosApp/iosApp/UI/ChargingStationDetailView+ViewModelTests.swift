@@ -33,5 +33,14 @@ struct ChargingStationDetailViewModelTests {
         
         #expect(mock.fetchChargingStationDetailIdStringChargingStationDetailCallsCount == 1)
     }
+    
+    @Test func givenApiReturnsDetail_stateIsUpdatedToLoaded() async {
+        mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Some Test Title", description: "Some Test Description")
+        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
 
+        await sut.fetch()
+        
+        #expect(sut.state == .loaded(.init(title: "Some Test Title", description: "Some Test Description")))
+
+    }
 }

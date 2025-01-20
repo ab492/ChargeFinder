@@ -3,8 +3,9 @@ import Observation
 extension ChargingStationDetailView {
     @Observable
     class ViewModel {
-        enum State {
+        enum State: Equatable {
             case loading
+            case loaded(ChargingStationDetail)
         }
         
         private let api: ChargeFinderApi
@@ -22,12 +23,17 @@ extension ChargingStationDetailView {
             self.init(id: id, api: ChargeFinderApiImpl())
         }
         
-        let state = State.loading
+        var state = State.loading
         
         let text = "Charging Station Detail"
         
         func fetch() async {
-            try? await api.fetchChargingStationDetail(id: id)
+            do {
+                let detailModel = try await api.fetchChargingStationDetail(id: id)
+                self.state = .loaded(detailModel)
+            } catch {
+//                self.state = .error("Something went wrong")
+            }
         }
     }
 }

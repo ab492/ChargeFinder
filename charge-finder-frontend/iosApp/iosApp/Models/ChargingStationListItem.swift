@@ -5,7 +5,7 @@ struct ChargingStationListItem: Equatable, Identifiable, Hashable {
     let title: String
 }
 
-struct ChargingStationDetail {
+struct ChargingStationDetail: Equatable {
     let title: String
     let description: String
 }
