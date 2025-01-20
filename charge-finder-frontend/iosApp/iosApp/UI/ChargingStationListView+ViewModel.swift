@@ -4,18 +4,10 @@ import Observation
 extension ChargingStationListView {
     @Observable @MainActor
     final class ViewModel {
-        
-        // MARK: - Types
 
-        enum State: Equatable {
-            case loading
-            case loaded([ChargingStationListItem])
-            case error(String)
-        }
-        
         // MARK: - Properties
 
-        private(set) var state = State.loading
+        private(set) var state: PageState<[ChargingStationListItem]> = .loading
         private let api: ChargeFinderApi
         
         // MARK: - Init

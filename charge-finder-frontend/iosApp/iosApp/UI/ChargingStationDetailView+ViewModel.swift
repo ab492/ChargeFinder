@@ -1,13 +1,11 @@
 import Observation
 
+
+
 extension ChargingStationDetailView {
     @Observable
     class ViewModel {
-        enum State: Equatable {
-            case loading
-            case loaded(ChargingStationDetail)
-            case error(String)
-        }
+ 
         
         private let api: ChargeFinderApi
         private let id: String
@@ -24,7 +22,7 @@ extension ChargingStationDetailView {
             self.init(id: id, api: ChargeFinderApiImpl())
         }
         
-        var state = State.loading
+        var state = PageState<ChargingStationDetail>.loading
         
         let text = "Charging Station Detail"
         
