@@ -62,6 +62,4 @@ final private class MockChargeFinderApi: ChargeFinderApi {
     }
 }
 
-private enum TestError: Error {
-    case dummyError
-}
+

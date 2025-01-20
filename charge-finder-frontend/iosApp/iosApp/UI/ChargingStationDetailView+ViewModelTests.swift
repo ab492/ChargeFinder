@@ -41,6 +41,14 @@ struct ChargingStationDetailViewModelTests {
         await sut.fetch()
         
         #expect(sut.state == .loaded(.init(title: "Some Test Title", description: "Some Test Description")))
-
+    }
+    
+    @Test func givenApiThrowsAnError_stateIsUpdatedToError() async {
+        mock.fetchChargingStationDetailIdStringChargingStationDetailThrowableError = TestError.dummyError
+        let sut = ChargingStationDetailView.ViewModel(id: "dummy", api: mock)
+        
+        await sut.fetch()
+        
+        #expect(sut.state == .error("Something went wrong"))
     }
 }

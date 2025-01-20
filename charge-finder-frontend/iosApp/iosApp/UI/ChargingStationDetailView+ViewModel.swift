@@ -6,6 +6,7 @@ extension ChargingStationDetailView {
         enum State: Equatable {
             case loading
             case loaded(ChargingStationDetail)
+            case error(String)
         }
         
         private let api: ChargeFinderApi
@@ -32,7 +33,7 @@ extension ChargingStationDetailView {
                 let detailModel = try await api.fetchChargingStationDetail(id: id)
                 self.state = .loaded(detailModel)
             } catch {
-//                self.state = .error("Something went wrong")
+                self.state = .error("Something went wrong")
             }
         }
     }
