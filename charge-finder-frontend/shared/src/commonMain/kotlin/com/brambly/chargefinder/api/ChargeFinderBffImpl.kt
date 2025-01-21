@@ -35,6 +35,6 @@ class ChargeFinderBffImpl: ChargeFinderBff {
     }
 
     override suspend fun fetchDetail(id: String): ChargingStationDetail {
-        return httpClient.get("$BASE_PATH/detail/$id").body()
+        return httpClient.get("$BASE_PATH/chargingStationDetail/$id").body()
     }
 }

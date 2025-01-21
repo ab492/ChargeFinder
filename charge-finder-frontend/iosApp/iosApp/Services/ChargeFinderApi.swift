@@ -12,7 +12,7 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
     func fetchChargingStationList() async throws -> [ChargingStationListItem] {
         try await Task { @MainActor in // Calling Kotlin suspend function must occur from main thread.
             try await sharedApi.fetchHome().map {
-                ChargingStationListItem(id: $0.id, title: $0.title)
+                ChargingStationListItem(sharedModel: $0)
             }
         }.value
     }
@@ -20,7 +20,7 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
     func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail {
         try await Task { @MainActor in  // Calling Kotlin suspend function must occur from main thread.
             let detail = try await sharedApi.fetchDetail(id: id)
-            return ChargingStationDetail(title: detail.title, description: detail.description)
+            return ChargingStationDetail(sharedModel: detail)
         }.value
     }
 }
