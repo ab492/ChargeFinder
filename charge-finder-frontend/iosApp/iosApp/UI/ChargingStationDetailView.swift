@@ -1,14 +1,20 @@
 import SwiftUI
 
 struct ChargingStationDetailView: View {
-    @State var viewModel = ViewModel(id: "1")
+    @State private var viewModel: ViewModel
+    
+    init(id: String) {
+        self._viewModel = State(wrappedValue: ViewModel(id: id))
+    }
     
     var body: some View {
-        Text(viewModel.text)
+        VStack {
+            Text(viewModel.text)
+        }
     }
 }
 
 #Preview {
-    ChargingStationDetailView()
+    ChargingStationDetailView(id: "1")
 }
 

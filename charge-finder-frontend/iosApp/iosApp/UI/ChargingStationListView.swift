@@ -20,7 +20,7 @@ struct ChargingStationListView: View {
                 }
             }
             .navigationDestination(for: ChargingStationListItem.self, destination: { station in
-                ChargingStationDetailView()
+                ChargingStationDetailView(id: station.id)
             })
             .navigationTitle("Charging Stations")
         }
