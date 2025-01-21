@@ -4,11 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ListItem (
-    @SerialName("id")
     val id: String,
-    @SerialName("title")
     val title: String,
-    @SerialName("navigationDestination")
     var navigationDestination: NavigationDestination
 )
 
