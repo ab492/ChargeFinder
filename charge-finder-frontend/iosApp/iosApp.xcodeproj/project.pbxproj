@@ -10,7 +10,6 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */; };
 		AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */; };
 		AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */; };
@@ -20,6 +19,8 @@
 		AD47A0952D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0942D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift */; };
 		AD47A0982D40C96C0029CF9E /* KeyValueCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0972D40C96C0029CF9E /* KeyValueCache.swift */; };
 		AD47A09A2D40CC510029CF9E /* ColumnStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0992D40CC510029CF9E /* ColumnStepper.swift */; };
+		AD47A09C2D40D29C0029CF9E /* DynamicImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A09B2D40D29C0029CF9E /* DynamicImageGrid.swift */; };
+		AD47A0A12D40D93A0029CF9E /* ChargingStationDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A09F2D40D93A0029CF9E /* ChargingStationDetailTests.swift */; };
 		AD4BB0062D34EB4600A3CA09 /* ChargingStationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
@@ -62,7 +63,6 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD0EA1362D2908A4006CEFC6 /* iosApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iosApp.xctestplan; sourceTree = SOURCE_ROOT; };
 		AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListSuccess.swift; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		AD47A0942D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailViewSuccess.swift; sourceTree = "<group>"; };
 		AD47A0972D40C96C0029CF9E /* KeyValueCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueCache.swift; sourceTree = "<group>"; };
 		AD47A0992D40CC510029CF9E /* ColumnStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnStepper.swift; sourceTree = "<group>"; };
+		AD47A09B2D40D29C0029CF9E /* DynamicImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicImageGrid.swift; sourceTree = "<group>"; };
+		AD47A09F2D40D93A0029CF9E /* ChargingStationDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailTests.swift; sourceTree = "<group>"; };
 		AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailView.swift; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
@@ -138,14 +140,12 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				AD47A08F2D40C0780029CF9E /* Extensions */,
-				AD47A08C2D40C03A0029CF9E /* Design Tokens */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
-				7555FF82242A565900829871 /* ContentView.swift */,
+				AD3F0F1A2D2BB55C00B10E4B /* UI */,
+				AD510B1D2CC62BF10074E95A /* Services */,
+				AD47A08F2D40C0780029CF9E /* Extensions */,
 				AD47A0962D40C9580029CF9E /* Utilities */,
 				AD3F0F1B2D2BB56800B10E4B /* Resources */,
-				AD510B1D2CC62BF10074E95A /* Services */,
-				AD3F0F1A2D2BB55C00B10E4B /* UI */,
 				AD3F0F1C2D2BB59300B10E4B /* Models */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -167,6 +167,7 @@
 				ADDBC34C2D3F7C2E006AE77D /* ChargingStationList */,
 				ADDBC34D2D3F7C48006AE77D /* ChargingStationDetail */,
 				ADDBC34E2D3F7C5E006AE77D /* ReusableUI */,
+				AD47A08C2D40C03A0029CF9E /* Design Tokens */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -184,6 +185,7 @@
 			children = (
 				AD510B172CC2BE980074E95A /* ChargingStationListItem.swift */,
 				ADDBC34A2D3F7A5A006AE77D /* ChargingStationDetail.swift */,
+				AD47A09F2D40D93A0029CF9E /* ChargingStationDetailTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				AD47A0992D40CC510029CF9E /* ColumnStepper.swift */,
+				AD47A09B2D40D29C0029CF9E /* DynamicImageGrid.swift */,
 				AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */,
 			);
 			path = ReusableUI;
@@ -419,6 +422,7 @@
 				ADDBC34B2D3F7A5A006AE77D /* ChargingStationDetail.swift in Sources */,
 				AD47A08E2D40C05E0029CF9E /* ColorToken.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				AD47A09C2D40D29C0029CF9E /* DynamicImageGrid.swift in Sources */,
 				ADA2C23A2D3E2327000C0CEC /* ChargingStationDetailView+ViewModel.swift in Sources */,
 				AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */,
 				AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */,
@@ -427,7 +431,6 @@
 				AD47A0932D40C0D80029CF9E /* ChargingStationListItemView.swift in Sources */,
 				AD47A0912D40C0870029CF9E /* UIColor+Hex.swift in Sources */,
 				AD510B182CC2BEA20074E95A /* ChargingStationListItem.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */,
 				AD47A0952D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift in Sources */,
 				ADA2C23F2D3E29BC000C0CEC /* PageState.swift in Sources */,
@@ -440,6 +443,7 @@
 			files = (
 				ADA2C23D2D3E27EA000C0CEC /* TestError.swift in Sources */,
 				ADA2C2382D3E22DF000C0CEC /* ChargingStationDetailView+ViewModelTests.swift in Sources */,
+				AD47A0A12D40D93A0029CF9E /* ChargingStationDetailTests.swift in Sources */,
 				AD510B1C2CC62A730074E95A /* AutoGeneratedMocks.swift in Sources */,
 				AD510B162CC2B52F0074E95A /* ChargingStationListView+ViewModel+Tests.swift in Sources */,
 			);

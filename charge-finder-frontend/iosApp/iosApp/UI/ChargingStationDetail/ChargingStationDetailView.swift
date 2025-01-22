@@ -10,20 +10,22 @@ struct ChargingStationDetailView: View {
     var body: some View {
         Group {
             switch viewModel.state {
-            case .loading: ProgressView()
+            case .loading:
+                ProgressView()
             case .loaded(let detail):
                 ChargingStationDetailViewSuccess(
                     title: detail.title,
                     subtitle: detail.description,
                     images: detail.images
                 )
-            case .error(let error): ErrorView(
-                errorText: error,
-                action: {
-                    Task {
-                        await viewModel.fetch()
-                    }
-                })
+            case .error(let error):
+                ErrorView(
+                    errorText: error,
+                    action: {
+                        Task {
+                            await viewModel.fetch()
+                        }
+                    })
             }
         }
         .background(Color.palette(.background))

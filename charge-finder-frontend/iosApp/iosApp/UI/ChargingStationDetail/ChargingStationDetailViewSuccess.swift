@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct ChargingStationDetailViewSuccess: View {
+    
+    // MARK: - Properties
+
     let title: String
     let subtitle: String
     let images: [URL]
@@ -8,14 +11,16 @@ struct ChargingStationDetailViewSuccess: View {
     @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: 3)
     @State private var isEditing = false
 
-    private var columnsTitle: String {
+    private var columnStepperTitle: String {
         gridColumns.count > 1 ? "\(gridColumns.count) Columns" : "1 Column"
     }
     
+    // MARK: - Body
+
     var body: some View {
         VStack {
             if isEditing {
-                ColumnStepper(title: columnsTitle, range: 1...4, columns: $gridColumns)
+                ColumnStepper(title: columnStepperTitle, range: 1...4, columns: $gridColumns)
                     .padding(.horizontal)
             }
             ScrollView {
@@ -29,7 +34,7 @@ struct ChargingStationDetailViewSuccess: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading) // TODO: ‼️ Check this
                 .padding(.horizontal)
-                imageGrid(items: images.map { .init(url: $0) })
+                DynamicImageGrid(gridColumns: $gridColumns, images: images)
             }
             
         }
@@ -41,45 +46,7 @@ struct ChargingStationDetailViewSuccess: View {
             }
         }
     }
-    
-    private func imageGrid(items: [ChargingStationDetailViewSuccess.Item]) -> some View {
-        VStack {
-            LazyVGrid(columns: gridColumns) {
-                ForEach(items) { item in
-                    GeometryReader { geo in
-                        GridItemView(url: item.url, size: geo.size)
-                    }
-                    .cornerRadius(8.0)
-                    .aspectRatio(1, contentMode: .fit)
-                }
-            }.padding()
-        }
-    }
 }
-
-extension ChargingStationDetailViewSuccess {
-    struct Item: Identifiable, Equatable {
-        let url: URL
-        var id: String { url.absoluteString }
-    }
-}
-
-
-
-
-struct GridItemView: View {
-    let url: URL
-    let size: CGSize
-    
-    var body: some View {
-        RemoteImageView(url: url)
-            .scaledToFill()
-            .frame(width: size.width, height: size.height)
-    }
-}
-
-
-
 
 /// A image view loaded from a URL. This view handles network fetching and caching.
 struct RemoteImageView: View {
