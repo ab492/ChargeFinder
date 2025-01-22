@@ -78,30 +78,7 @@ struct GridItemView: View {
     }
 }
 
-struct ColumnStepper: View {
 
-    @Binding private var columns: [GridItem]
-    @State private var numberOfColumns: Int
-    private let title: String
-    private let range: ClosedRange<Int>
-    
-    init(title: String,
-         range: ClosedRange<Int>,
-         columns: Binding<[GridItem]>) {
-        self.title = title
-        self.range = range
-        self._columns = columns
-        self.numberOfColumns = columns.count
-    }
-    
-    var body: some View {
-        Stepper(title, value: $numberOfColumns, in: range, step: 1) { _ in
-            withAnimation {
-                columns = Array(repeating: GridItem(.flexible()), count: numberOfColumns)
-            }
-        }
-    }
-}
 
 
 /// A image view loaded from a URL. This view handles network fetching and caching.

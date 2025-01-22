@@ -19,6 +19,7 @@
 		AD47A0932D40C0D80029CF9E /* ChargingStationListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0922D40C0D80029CF9E /* ChargingStationListItemView.swift */; };
 		AD47A0952D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0942D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift */; };
 		AD47A0982D40C96C0029CF9E /* KeyValueCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0972D40C96C0029CF9E /* KeyValueCache.swift */; };
+		AD47A09A2D40CC510029CF9E /* ColumnStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0992D40CC510029CF9E /* ColumnStepper.swift */; };
 		AD4BB0062D34EB4600A3CA09 /* ChargingStationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
@@ -72,6 +73,7 @@
 		AD47A0922D40C0D80029CF9E /* ChargingStationListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListItemView.swift; sourceTree = "<group>"; };
 		AD47A0942D40C47B0029CF9E /* ChargingStationDetailViewSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailViewSuccess.swift; sourceTree = "<group>"; };
 		AD47A0972D40C96C0029CF9E /* KeyValueCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueCache.swift; sourceTree = "<group>"; };
+		AD47A0992D40CC510029CF9E /* ColumnStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnStepper.swift; sourceTree = "<group>"; };
 		AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailView.swift; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		ADDBC34E2D3F7C5E006AE77D /* ReusableUI */ = {
 			isa = PBXGroup;
 			children = (
+				AD47A0992D40CC510029CF9E /* ColumnStepper.swift */,
 				AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */,
 			);
 			path = ReusableUI;
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD47A0982D40C96C0029CF9E /* KeyValueCache.swift in Sources */,
+				AD47A09A2D40CC510029CF9E /* ColumnStepper.swift in Sources */,
 				AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */,
 				AD4BB0062D34EB4600A3CA09 /* ChargingStationDetailView.swift in Sources */,
 				ADDBC34B2D3F7A5A006AE77D /* ChargingStationDetail.swift in Sources */,
