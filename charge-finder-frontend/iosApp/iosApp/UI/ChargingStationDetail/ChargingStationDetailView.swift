@@ -12,10 +12,10 @@ struct ChargingStationDetailView: View {
             switch viewModel.state {
             case .loading: ProgressView()
             case .loaded(let detail):
-                VStack {
-                    Text(detail.title)
-                    Text(detail.description)
-                }
+                ChargingStationDetailViewSuccess(
+                    title: detail.title,
+                    subtitle: detail.description
+                )
             case .error(let error): ErrorView(
                 errorText: error,
                 action: {
@@ -25,11 +25,14 @@ struct ChargingStationDetailView: View {
                 })
             }
         }
+        .background(Color.palette(.background))
         .task {
             await viewModel.fetch()
         }
     }
 }
+
+
 
 #Preview {
     ChargingStationDetailView(id: "1")
