@@ -14,7 +14,8 @@ struct ChargingStationDetailView: View {
             case .loaded(let detail):
                 ChargingStationDetailViewSuccess(
                     title: detail.title,
-                    subtitle: detail.description
+                    subtitle: detail.description,
+                    images: detail.images
                 )
             case .error(let error): ErrorView(
                 errorText: error,

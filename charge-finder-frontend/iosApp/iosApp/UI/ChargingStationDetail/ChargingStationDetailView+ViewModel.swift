@@ -9,7 +9,6 @@ extension ChargingStationDetailView {
         private let api: ChargeFinderApi
         private let id: String
         private(set) var state = PageState<ChargingStationDetail>.loading
-        let text = "Charging Station Detail" // Temporary
         
         // MARK: - Init
 
