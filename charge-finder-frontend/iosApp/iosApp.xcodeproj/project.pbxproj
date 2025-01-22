@@ -14,6 +14,8 @@
 		AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */; };
 		AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */; };
 		AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */; };
+		AD47A08E2D40C05E0029CF9E /* ColorToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A08D2D40C05E0029CF9E /* ColorToken.swift */; };
+		AD47A0912D40C0870029CF9E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47A0902D40C0870029CF9E /* UIColor+Hex.swift */; };
 		AD4BB0062D34EB4600A3CA09 /* ChargingStationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */; };
 		AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B112CC2A9370074E95A /* ChargingStationListView.swift */; };
 		AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */; };
@@ -62,6 +64,8 @@
 		AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListSuccess.swift; sourceTree = "<group>"; };
 		AD3F0F182D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChargingStationListItem+Mock.swift"; sourceTree = "<group>"; };
 		AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		AD47A08D2D40C05E0029CF9E /* ColorToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToken.swift; sourceTree = "<group>"; };
+		AD47A0902D40C0870029CF9E /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationDetailView.swift; sourceTree = "<group>"; };
 		AD510B032CC2A6F40074E95A /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD510B112CC2A9370074E95A /* ChargingStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD47A08F2D40C0780029CF9E /* Extensions */,
+				AD47A08C2D40C03A0029CF9E /* Design Tokens */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				AD3F0F1B2D2BB56800B10E4B /* Resources */,
@@ -171,6 +177,22 @@
 				ADDBC34A2D3F7A5A006AE77D /* ChargingStationDetail.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AD47A08C2D40C03A0029CF9E /* Design Tokens */ = {
+			isa = PBXGroup;
+			children = (
+				AD47A08D2D40C05E0029CF9E /* ColorToken.swift */,
+			);
+			path = "Design Tokens";
+			sourceTree = "<group>";
+		};
+		AD47A08F2D40C0780029CF9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD47A0902D40C0870029CF9E /* UIColor+Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AD510B0D2CC2A6FB0074E95A /* iosAppTests */ = {
@@ -373,12 +395,14 @@
 				AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */,
 				AD4BB0062D34EB4600A3CA09 /* ChargingStationDetailView.swift in Sources */,
 				ADDBC34B2D3F7A5A006AE77D /* ChargingStationDetail.swift in Sources */,
+				AD47A08E2D40C05E0029CF9E /* ColorToken.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				ADA2C23A2D3E2327000C0CEC /* ChargingStationDetailView+ViewModel.swift in Sources */,
 				AD3F0F192D2BB3C800B10E4B /* ChargingStationListItem+Mock.swift in Sources */,
 				AD510B142CC2B3390074E95A /* ChargingStationListView+ViewModel.swift in Sources */,
 				AD510B1F2CC62C200074E95A /* ChargeFinderApi.swift in Sources */,
 				AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */,
+				AD47A0912D40C0870029CF9E /* UIColor+Hex.swift in Sources */,
 				AD510B182CC2BEA20074E95A /* ChargingStationListItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */,
