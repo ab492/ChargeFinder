@@ -23,11 +23,11 @@ struct ChargingStationListViewModelTests {
     }
     
     @Test func givenApiReturnsStations_stateIsUpdatedToLoaded() async {
-        mockApi.resultToReturn = .success([.init(id: "123", title: "Dummy Title")])
+        mockApi.resultToReturn = .success([.init(id: "123", title: "Dummy Title", details: "Dummy Details")])
         
         await sut.fetchChargingStations()
         
-        #expect(sut.state == .loaded([.init(id: "123", title: "Dummy Title")]))
+        #expect(sut.state == .loaded([.init(id: "123", title: "Dummy Title", details: "Dummy Details")]))
     }
     
     @Test func givenApiThrowsAnError_stateIsUpdatedToError() async {

@@ -1,4 +1,5 @@
 import Testing
+import Foundation
 @testable import iosApp
 
 struct ChargingStationDetailViewModelTests {
@@ -9,7 +10,11 @@ struct ChargingStationDetailViewModelTests {
 
     init() {
         self.mock = ChargeFinderApiMock()
-        self.mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Dummy Title", description: "Dummy Description")
+        self.mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(
+            title: "Dummy Title",
+            description: "Dummy Description",
+            images: [URL(string: "www.dummy-url.co.uk")!]
+        )
         
     }
     
@@ -31,12 +36,24 @@ struct ChargingStationDetailViewModelTests {
     }
     
     @Test func givenApiReturnsDetail_stateIsUpdatedToLoaded() async {
-        mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(title: "Some Test Title", description: "Some Test Description")
+        mock.fetchChargingStationDetailIdStringChargingStationDetailReturnValue = .init(
+            title: "Some Test Title",
+            description: "Some Test Description",
+            images: [URL(string: "www.dummy-url.co.uk")!]
+        )
         let sut = makeSut()
 
         await sut.fetch()
         
-        #expect(sut.state == .loaded(.init(title: "Some Test Title", description: "Some Test Description")))
+        #expect(
+            sut.state == .loaded(
+                .init(
+                    title: "Some Test Title",
+                    description: "Some Test Description",
+                    images: [URL(string: "www.dummy-url.co.uk")!]
+                )
+            )
+        )
     }
     
     @Test func givenApiThrowsAnError_stateIsUpdatedToError() async {
