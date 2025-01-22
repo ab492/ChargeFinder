@@ -164,9 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				ADA2C23E2D3E29BC000C0CEC /* PageState.swift */,
-				ADDBC34C2D3F7C2E006AE77D /* ChargingStationList */,
-				ADDBC34D2D3F7C48006AE77D /* ChargingStationDetail */,
-				ADDBC34E2D3F7C5E006AE77D /* ReusableUI */,
+				ADDBC34C2D3F7C2E006AE77D /* Charging Station List */,
+				ADDBC34D2D3F7C48006AE77D /* Charging Station Detail */,
+				ADDBC34E2D3F7C5E006AE77D /* Reusable UI */,
 				AD47A08C2D40C03A0029CF9E /* Design Tokens */,
 			);
 			path = UI;
@@ -240,7 +240,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		ADDBC34C2D3F7C2E006AE77D /* ChargingStationList */ = {
+		ADDBC34C2D3F7C2E006AE77D /* Charging Station List */ = {
 			isa = PBXGroup;
 			children = (
 				AD47A0922D40C0D80029CF9E /* ChargingStationListItemView.swift */,
@@ -249,10 +249,10 @@
 				AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */,
 				AD510B152CC2B52F0074E95A /* ChargingStationListView+ViewModel+Tests.swift */,
 			);
-			path = ChargingStationList;
+			path = "Charging Station List";
 			sourceTree = "<group>";
 		};
-		ADDBC34D2D3F7C48006AE77D /* ChargingStationDetail */ = {
+		ADDBC34D2D3F7C48006AE77D /* Charging Station Detail */ = {
 			isa = PBXGroup;
 			children = (
 				AD4BB0052D34EB4600A3CA09 /* ChargingStationDetailView.swift */,
@@ -260,17 +260,17 @@
 				ADA2C2392D3E2327000C0CEC /* ChargingStationDetailView+ViewModel.swift */,
 				ADA2C2362D3E22DF000C0CEC /* ChargingStationDetailView+ViewModelTests.swift */,
 			);
-			path = ChargingStationDetail;
+			path = "Charging Station Detail";
 			sourceTree = "<group>";
 		};
-		ADDBC34E2D3F7C5E006AE77D /* ReusableUI */ = {
+		ADDBC34E2D3F7C5E006AE77D /* Reusable UI */ = {
 			isa = PBXGroup;
 			children = (
 				AD47A0992D40CC510029CF9E /* ColumnStepper.swift */,
 				AD47A09B2D40D29C0029CF9E /* DynamicImageGrid.swift */,
 				AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */,
 			);
-			path = ReusableUI;
+			path = "Reusable UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

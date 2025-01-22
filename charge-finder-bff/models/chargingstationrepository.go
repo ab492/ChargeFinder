@@ -15,6 +15,10 @@ var allImageUrls = []string{
 	"https://images.unsplash.com/photo-1635451048957-3beb7175f57f",
 	"https://images.unsplash.com/photo-1650452233063-8f308616b729",
 	"https://images.unsplash.com/photo-1652252421025-0392a97129a3",
+	"https://images.unsplash.com/photo-1607171028974-319ba56cb013",
+	"https://images.unsplash.com/photo-1671782762232-217c587d7f1f",
+	"https://images.unsplash.com/photo-1663579747228-d30eee006200",
+	"https://images.unsplash.com/photo-1642271478473-24ab14c4d5f8",
 }
 
 var titlePool = []string{
@@ -83,7 +87,7 @@ func generateStations(count int) []ChargingStation {
 			ID:           fmt.Sprintf("%d", i),
 			LocationName: titlePool[rand.Intn(len(titlePool))],
 			Address:      addressPool[rand.Intn(len(addressPool))],
-			ImageUrls:    getRandomSubset(allImageUrls, rand.Intn(4)+1), // 1-4 random images
+			ImageUrls:    getRandomSubset(allImageUrls, rand.Intn(8)+1), // 1-8 random images
 		}
 		stations = append(stations, station)
 	}

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChargingStationListView: View {
-    @State var viewModel = ViewModel()
+    @State private var viewModel = ViewModel()
     
     var body: some View {
         NavigationStack {
