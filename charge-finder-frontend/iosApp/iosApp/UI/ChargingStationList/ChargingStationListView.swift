@@ -19,6 +19,9 @@ struct ChargingStationListView: View {
                     })
                 }
             }
+            .navigationTitle("Charging Stations ⚡️")
+            .navigationBarTitleDisplayMode(.inline)
+            .background(Color.palette(.background))
             .navigationDestination(for: ChargingStationListItem.self, destination: { station in
                 ChargingStationDetailView(id: station.id)
             })

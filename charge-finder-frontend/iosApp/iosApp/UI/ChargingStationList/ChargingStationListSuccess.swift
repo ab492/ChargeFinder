@@ -6,10 +6,16 @@ struct ChargingStationListSuccess: View {
     var body: some View {
         List(chargingStations) { station in
             NavigationLink(value: station) {
-                Text(station.title)
+                ChargingStationListViewItem(
+                    title: station.title,
+                    subtitle: station.details
+                )
                 
             }
+            .listRowSeparatorTint(Color.palette(.secondary))
+            .listRowBackground(Color.palette(.background))
         }
+        .listStyle(.plain)
     }
 }
 
