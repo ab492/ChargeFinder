@@ -40,9 +40,15 @@ extension RemoteImageView {
         private let cache = ImageCache.shared
         private let url: URL
         private(set) var state = LoadState.loading
+        private let urlSession: URLSessionProtocol
         
-        init(url: URL) {
+        init(url: URL, urlSession: URLSessionProtocol) {
             self.url = url
+            self.urlSession = urlSession
+        }
+        
+        convenience init(url: URL) {
+            self.init(url: url, urlSession: URLSession.shared)
         }
         
         func load() async {
@@ -52,7 +58,7 @@ extension RemoteImageView {
             }
             
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
+                let (data, _) = try await urlSession.data(from: url)
                 
                 if let image = UIImage(data: data) {
                     addImageToCache(image, for: url)
@@ -94,3 +100,10 @@ extension RemoteImageView {
         }
     }
 }
+
+
+protocol URLSessionProtocol {
+    func data(from url: URL) async throws -> (Data, URLResponse)
+}
+
+extension URLSession: URLSessionProtocol { }
