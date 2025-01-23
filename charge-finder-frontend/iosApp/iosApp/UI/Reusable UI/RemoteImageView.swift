@@ -3,14 +3,14 @@ import SwiftUI
 /// A image view loaded from a URL. This view handles network fetching and caching.
 struct RemoteImageView: View {
     
-    @StateObject private var loader: Loader
+    @State private var loader: Loader
     
     init(url: URL) {
-        _loader = StateObject(wrappedValue: Loader(url: url))
+        _loader = State(wrappedValue: Loader(url: url))
     }
     
     var body: some View {
-        ZStack {
+        Group {
             switch loader.state {
             case .success(let image):
                 Image(uiImage: image)
@@ -21,20 +21,21 @@ struct RemoteImageView: View {
             case .loading:
                 ProgressView()
             }
-        }.onAppear { loader.load() }
+        }.task { await loader.load() }
     }
 }
 
 // MARK: - Loader
 
 extension RemoteImageView {
-    private enum LoadState {
+    fileprivate enum LoadState {
         case loading
         case success(UIImage)
         case failure
     }
     
-    private final class Loader: ObservableObject {
+    @Observable
+    fileprivate final class Loader {
         
         private let cache = ImageCache.shared
         private let url: URL
@@ -44,27 +45,24 @@ extension RemoteImageView {
             self.url = url
         }
         
-        func load() {
+        func load() async {
             if let cachedImage = loadImageFromCache(for: url) {
                 state = .success(cachedImage)
-                objectWillChange.send()
                 return
             }
             
-            URLSession.shared.dataTask(with: self.url) { [weak self] data, response, error in
-                guard let self else { return }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
                 
-                if let data = data,
-                   let image = UIImage(data: data) {
-                    self.addImageToCache(image, for: self.url)
-                    self.state = .success(image)
+                if let image = UIImage(data: data) {
+                    addImageToCache(image, for: url)
+                    state = .success(image)
                 } else {
-                    self.state = .failure
+                    state = .failure
                 }
-                DispatchQueue.main.async {
-                    self.objectWillChange.send()
-                }
-            }.resume()
+            } catch {
+                state = .failure
+            }
         }
         
         private func addImageToCache(_ image: UIImage, for url: URL) {
