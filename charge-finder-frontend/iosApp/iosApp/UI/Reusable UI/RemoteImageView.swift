@@ -37,20 +37,35 @@ extension RemoteImageView {
     @Observable
     fileprivate final class Loader {
         
-        private let cache = ImageCache.shared
+        // MARK: - Properties
+
         private let url: URL
         private(set) var state = LoadState.loading
         private let urlSession: URLSessionProtocol
+        private let imageCache: ImageCacheProtocol
         
-        init(url: URL, urlSession: URLSessionProtocol) {
+        // MARK: - Init
+
+        init(
+            url: URL,
+            urlSession: URLSessionProtocol,
+            imageCache: ImageCacheProtocol
+        ) {
             self.url = url
             self.urlSession = urlSession
+            self.imageCache = imageCache
         }
         
         convenience init(url: URL) {
-            self.init(url: url, urlSession: URLSession.shared)
+            self.init(
+                url: url,
+                urlSession: URLSession.shared,
+                imageCache: ImageCache.shared
+            )
         }
         
+        // MARK: - Public
+
         func load() async {
             if let cachedImage = loadImageFromCache(for: url) {
                 state = .success(cachedImage)
@@ -71,12 +86,14 @@ extension RemoteImageView {
             }
         }
         
+        // MARK: - Private
+        
         private func addImageToCache(_ image: UIImage, for url: URL) {
-            cache.set(image: image, forKey: url)
+            imageCache.set(image: image, forKey: url)
         }
         
         private func loadImageFromCache(for url: URL) -> UIImage? {
-            cache.value(forKey: url)
+            imageCache.value(forKey: url)
         }
     }
 }
@@ -84,7 +101,7 @@ extension RemoteImageView {
 // MARK: - Cache
 
 extension RemoteImageView {
-    private final class ImageCache {
+    private final class ImageCache: ImageCacheProtocol {
         static let shared = ImageCache()
 
         private init() { }
@@ -100,10 +117,3 @@ extension RemoteImageView {
         }
     }
 }
-
-
-protocol URLSessionProtocol {
-    func data(from url: URL) async throws -> (Data, URLResponse)
-}
-
-extension URLSession: URLSessionProtocol { }
