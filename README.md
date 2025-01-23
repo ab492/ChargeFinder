@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="charge-finder-frontend/iosApp/iosApp/Resources/Assets.xcassets/AppIcon.appiconset/1024.png" alt="Charge Finder Icon" width="200" />
+</p>
+
 # Charge Finder
 
 This is my current work in progress side project. It's going to be an mock app for finding nearby EV chargers and starting a charge.
