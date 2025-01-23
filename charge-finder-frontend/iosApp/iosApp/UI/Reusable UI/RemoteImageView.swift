@@ -28,14 +28,14 @@ struct RemoteImageView: View {
 // MARK: - Loader
 
 extension RemoteImageView {
-    fileprivate enum LoadState {
+    enum LoadState {
         case loading
         case success(UIImage)
         case failure
     }
     
     @Observable
-    fileprivate final class Loader {
+    final class Loader {
         
         // MARK: - Properties
 
