@@ -14,10 +14,10 @@ The goals of this project are the following:
 I'm using evolutionary design while building this. You can see my current progress [here](https://miro.com/app/board/uXjVLAoPVW4=/?moveToWidget=3458764612228008974&cot=14).
 
 ## Reading List
-
-- https://developer.android.com/develop/ui/compose/mental-model#recomposition
-- https://developer.android.com/topic/architecture
-- https://developer.android.com/topic/libraries/architecture/livedata
+- [Kotlin Multiplatform Examples](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html)
+- [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition)
+- [Architecture](https://developer.android.com/topic/architecture)
+- [Live data](https://developer.android.com/topic/libraries/architecture/livedata)
 
 ### App Icon
 
