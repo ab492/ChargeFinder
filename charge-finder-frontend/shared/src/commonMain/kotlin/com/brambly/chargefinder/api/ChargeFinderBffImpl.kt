@@ -30,6 +30,7 @@ class ChargeFinderBffImpl: ChargeFinderBff {
         }
     }
 
+    @Throws(Exception::class)
     override suspend fun fetchHome(): List<ListItem> {
         return httpClient.get("$BASE_PATH/home").body()
     }

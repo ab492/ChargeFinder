@@ -11,8 +11,10 @@ final class ChargeFinderApiImpl: ChargeFinderApi {
     
     func fetchChargingStationList() async throws -> [ChargingStationListItem] {
         try await Task { @MainActor in // Calling Kotlin suspend function must occur from main thread.
-            try await sharedApi.fetchHome().map {
-                ChargingStationListItem(sharedModel: $0)
+            do {
+                return try await sharedApi.fetchHome().map { ChargingStationListItem(sharedModel: $0) }
+            } catch {
+                throw error
             }
         }.value
     }
