@@ -2,13 +2,12 @@ package com.brambly.chargefinder.android.ui.chargingstationlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.brambly.chargefinder.ListItem
+import com.brambly.chargefinder.models.ChargingStationListItem
 import com.brambly.chargefinder.api.ChargeFinderBff
 import com.brambly.chargefinder.api.ChargeFinderBffImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFinderBffImpl()) : ViewModel() {
@@ -23,7 +22,7 @@ class ChargingStationListViewModel(private val api: ChargeFinderBff = ChargeFind
         _uiState.value = UiState.Loading()
         viewModelScope.launch {
             try {
-                val chargingStations: List<ListItem> = api.fetchHome()
+                val chargingStations: List<ChargingStationListItem> = api.fetchHome()
                 val listItems = chargingStations.map { it.title }
                 _uiState.value = UiState.Loaded(listItems)
             } catch (e: Exception) {

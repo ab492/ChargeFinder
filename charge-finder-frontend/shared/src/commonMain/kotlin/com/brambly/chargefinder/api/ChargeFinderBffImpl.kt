@@ -1,6 +1,6 @@
 package com.brambly.chargefinder.api
-import com.brambly.chargefinder.ChargingStationDetail
-import com.brambly.chargefinder.ListItem
+import com.brambly.chargefinder.models.ChargingStationDetail
+import com.brambly.chargefinder.models.ChargingStationListItem
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
@@ -13,9 +13,7 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.URLProtocol
 import io.ktor.utils.io.errors.IOException
 import kotlin.coroutines.cancellation.CancellationException
-import kotlin.native.concurrent.ThreadLocal
 
-class ApiException(message: String, cause: Throwable) : Exception(message, cause)
 
 class ChargeFinderBffImpl: ChargeFinderBff {
     private val BASE_PATH = "/pages"
@@ -37,7 +35,7 @@ class ChargeFinderBffImpl: ChargeFinderBff {
     }
 
     @Throws(ApiException::class, CancellationException::class)
-    override suspend fun fetchHome(): List<ListItem> {
+    override suspend fun fetchHome(): List<ChargingStationListItem> {
         try {
             return httpClient.get("$BASE_PATH/home").body()
         } catch (e: CancellationException) {

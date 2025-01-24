@@ -1,4 +1,4 @@
-package com.brambly.chargefinder
+package com.brambly.chargefinder.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -13,7 +13,7 @@ struct ChargingStationListItem: Equatable, Identifiable, Hashable {
     }
     
     /// Initialiser for converting the KMP shared model to a local struct.
-    init(sharedModel: shared.ListItem) {
+    init(sharedModel: shared.ChargingStationListItem) {
         self.id = sharedModel.id
         self.title = sharedModel.title
         self.details = sharedModel.details
