@@ -7,7 +7,8 @@ struct ChargingStationListView: View {
         NavigationStack {
             Group {
                 switch viewModel.state {
-                case .loading: ProgressView()
+                case .loading:
+                    ProgressView()
                 case .loaded(let items):
                     ChargingStationListSuccess(chargingStations: items)
                 case .error(let error):

@@ -30,13 +30,9 @@ struct ChargingStationDetailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.palette(.background))
-        .task {
-            await viewModel.fetch()
-        }
+        .task { await viewModel.fetch() }
     }
 }
-
-
 
 #Preview {
     ChargingStationDetailView(id: "1")
