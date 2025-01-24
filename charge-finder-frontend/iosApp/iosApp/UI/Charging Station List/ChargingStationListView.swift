@@ -10,15 +10,17 @@ struct ChargingStationListView: View {
                 case .loading: ProgressView()
                 case .loaded(let items):
                     ChargingStationListSuccess(chargingStations: items)
-                case .error(let error): ErrorView(
-                    errorText: error,
-                    action: {
-                        Task {
-                            await viewModel.fetchChargingStations()
-                        }
-                    })
+                case .error(let error):
+                    ErrorView(
+                        errorText: error,
+                        action: {
+                            Task {
+                                await viewModel.fetchChargingStations()
+                            }
+                        })
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationTitle("Charging Stations ⚡️")
             .navigationBarTitleDisplayMode(.inline)
             .background(Color.palette(.background))

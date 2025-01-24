@@ -270,8 +270,8 @@
 		ADDBC34C2D3F7C2E006AE77D /* Charging Station List */ = {
 			isa = PBXGroup;
 			children = (
-				AD47A0922D40C0D80029CF9E /* ChargingStationListItemView.swift */,
 				AD510B112CC2A9370074E95A /* ChargingStationListView.swift */,
+				AD47A0922D40C0D80029CF9E /* ChargingStationListItemView.swift */,
 				AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */,
 				AD510B132CC2B3310074E95A /* ChargingStationListView+ViewModel.swift */,
 				AD510B152CC2B52F0074E95A /* ChargingStationListView+ViewModel+Tests.swift */,

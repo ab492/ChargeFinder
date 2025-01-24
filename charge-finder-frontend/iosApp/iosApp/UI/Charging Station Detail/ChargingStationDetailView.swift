@@ -28,6 +28,7 @@ struct ChargingStationDetailView: View {
                     })
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.palette(.background))
         .task {
             await viewModel.fetch()
