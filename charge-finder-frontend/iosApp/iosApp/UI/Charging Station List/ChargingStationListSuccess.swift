@@ -19,6 +19,24 @@ struct ChargingStationListSuccess: View {
     }
 }
 
+extension ChargingStationListSuccess {
+    struct ChargingStationListViewItem: View {
+        let title: String
+        let subtitle: String
+        
+        var body: some View {
+            VStack(alignment: .leading) {
+                Text(title)
+                    .font(.headline)
+                    .foregroundColor(.palette(.text))
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundColor(.palette(.secondary))
+            }
+        }
+    }
+}
+
 #Preview {
     ChargingStationListSuccess(
         chargingStations: [.mock, .mock, .mock]
