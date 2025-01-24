@@ -47,8 +47,15 @@ class ChargeFinderBffImpl: ChargeFinderBff {
         }
     }
 
+    @Throws(ApiException::class, CancellationException::class)
     override suspend fun fetchDetail(id: String): ChargingStationDetail {
-        return httpClient.get("$BASE_PATH/chargingStationDetail/$id").body()
+        try {
+            return httpClient.get("$BASE_PATH/chargingStationDetail/$id").body()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            throw handleException(e)
+        }
     }
 
     private fun handleException(exception: Exception): Exception {
