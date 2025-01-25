@@ -39,7 +39,18 @@ struct ChargingStationListView: View {
 }
 
 
-#Preview {
+#Preview("Success State") {
     let mock = MockPreviewChargingStationListViewModel(state: .loaded([.mock, .mock, .mock]))
     return ChargingStationListView(viewModel: mock)
 }
+
+#Preview("Loading State") {
+    let mock = MockPreviewChargingStationListViewModel(state: .loading)
+    return ChargingStationListView(viewModel: mock)
+}
+
+#Preview("Error State") {
+    let mock = MockPreviewChargingStationListViewModel(state: .error("Something went wrong"))
+    return ChargingStationListView(viewModel: mock)
+}
+
