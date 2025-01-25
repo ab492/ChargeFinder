@@ -11,6 +11,8 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		AD256A602D44B6A600120C4E /* PreviewMockViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD256A5F2D44B6A600120C4E /* PreviewMockViewModels.swift */; };
+		AD256A622D44C2D600120C4E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD256A612D44C2D600120C4E /* ImageCache.swift */; };
+		AD256A642D44C37200120C4E /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD256A632D44C36D00120C4E /* EnvironmentValues.swift */; };
 		AD3F0F172D2BB36C00B10E4B /* ChargingStationListSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */; };
 		AD3F0F192D2BB3C800B10E4B /* Models+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F182D2BB3C800B10E4B /* Models+Mocks.swift */; };
 		AD3F0F222D2BB5DB00B10E4B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */; };
@@ -73,6 +75,8 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD0EA1362D2908A4006CEFC6 /* iosApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iosApp.xctestplan; sourceTree = SOURCE_ROOT; };
 		AD256A5F2D44B6A600120C4E /* PreviewMockViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMockViewModels.swift; sourceTree = "<group>"; };
+		AD256A612D44C2D600120C4E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		AD256A632D44C36D00120C4E /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		AD3F0F162D2BB36C00B10E4B /* ChargingStationListSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationListSuccess.swift; sourceTree = "<group>"; };
 		AD3F0F182D2BB3C800B10E4B /* Models+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Mocks.swift"; sourceTree = "<group>"; };
 		AD3F0F212D2BB5DB00B10E4B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				AD256A632D44C36D00120C4E /* EnvironmentValues.swift */,
 				AD3F0F1A2D2BB55C00B10E4B /* UI */,
 				AD510B1D2CC62BF10074E95A /* Services */,
 				AD47A08F2D40C0780029CF9E /* Extensions */,
@@ -256,6 +261,7 @@
 			children = (
 				AD510B1E2CC62C200074E95A /* ChargeFinderApi.swift */,
 				AD9B862A2D4221C5000CAA55 /* URLSession.swift */,
+				AD256A612D44C2D600120C4E /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				AD9B86292D4221AD000CAA55 /* ImageCacheProtocol.swift in Sources */,
 				ADDBC34B2D3F7A5A006AE77D /* ChargingStationDetail.swift in Sources */,
 				AD47A08E2D40C05E0029CF9E /* ColorToken.swift in Sources */,
+				AD256A642D44C37200120C4E /* EnvironmentValues.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				AD47A09C2D40D29C0029CF9E /* DynamicImageGrid.swift in Sources */,
 				ADA2C23A2D3E2327000C0CEC /* ChargingStationDetailView+ViewModel.swift in Sources */,
@@ -459,6 +466,7 @@
 				AD510B1F2CC62C200074E95A /* ChargeFinderApi.swift in Sources */,
 				AD256A602D44B6A600120C4E /* PreviewMockViewModels.swift in Sources */,
 				AD510B122CC2A9370074E95A /* ChargingStationListView.swift in Sources */,
+				AD256A622D44C2D600120C4E /* ImageCache.swift in Sources */,
 				AD47A0912D40C0870029CF9E /* UIColor+Hex.swift in Sources */,
 				AD9B862B2D4221C5000CAA55 /* URLSession.swift in Sources */,
 				AD510B182CC2BEA20074E95A /* ChargingStationListItem.swift in Sources */,

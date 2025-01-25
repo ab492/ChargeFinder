@@ -56,7 +56,10 @@ extension RemoteImageView {
             self.imageCache = imageCache
         }
         
-        convenience init(url: URL, imageCache: ImageCacheProtocol) {
+        convenience init(
+            url: URL,
+            imageCache: ImageCacheProtocol
+        ) {
             self.init(
                 url: url,
                 urlSession: URLSession.shared,
@@ -94,26 +97,6 @@ extension RemoteImageView {
         
         private func loadImageFromCache(for url: URL) -> UIImage? {
             imageCache.value(forKey: url)
-        }
-    }
-}
-
-// MARK: - Cache
-
-extension RemoteImageView {
-    final class ImageCache: ImageCacheProtocol {
-        static let shared = ImageCache()
-
-        private init() { }
-
-        private let cache = KeyValueCache<URL, UIImage>()
-
-        func set(image: UIImage, forKey key: URL) {
-            cache.set(value: image, forKey: key)
-        }
-
-        func value(forKey key: URL) -> UIImage? {
-            cache.value(forKey: key)
         }
     }
 }
