@@ -1,5 +1,5 @@
 import UIKit
-@testable import iosApp
+@testable import Charge_Finder
 
 final class MockImageCache: ImageCacheProtocol {
     func set(image: UIImage, forKey key: URL) {

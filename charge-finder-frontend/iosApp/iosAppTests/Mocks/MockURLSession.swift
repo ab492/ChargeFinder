@@ -1,5 +1,5 @@
 import Foundation
-@testable import iosApp
+@testable import Charge_Finder
 
 final class MockURLSession: URLSessionProtocol {
     var dataCallCount = 0

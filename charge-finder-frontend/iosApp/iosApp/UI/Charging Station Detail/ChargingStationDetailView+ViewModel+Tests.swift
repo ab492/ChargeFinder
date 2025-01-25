@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import iosApp
+@testable import Charge_Finder
 
 struct ChargingStationDetailViewModelTests {
     

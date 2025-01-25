@@ -12,7 +12,7 @@ import AppKit
 #endif
 
 
-@testable import iosApp
+@testable import Charge_Finder
 
 
 

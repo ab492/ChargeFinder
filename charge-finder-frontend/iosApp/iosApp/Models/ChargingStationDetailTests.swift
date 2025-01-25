@@ -1,6 +1,6 @@
 import Testing
 import shared
-@testable import iosApp
+@testable import Charge_Finder
 
 struct ChargingStationDetailTests {
     @Test func descriptionFieldIsCorrectlyMappedFromSharedModelToLocalModel() async throws {

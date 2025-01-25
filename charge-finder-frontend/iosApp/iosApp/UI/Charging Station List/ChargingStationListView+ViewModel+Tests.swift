@@ -1,5 +1,5 @@
 import Testing
-@testable import iosApp
+@testable import Charge_Finder
 
 @MainActor
 struct ChargingStationListViewModelTests {
@@ -57,7 +57,7 @@ final private class MockChargeFinderApi: ChargeFinderApi {
         }
     }
     
-    func fetchChargingStationDetail(id: String) async throws -> iosApp.ChargingStationDetail {
+    func fetchChargingStationDetail(id: String) async throws -> ChargingStationDetail {
         fatalError("Not implemented")
     }
 }

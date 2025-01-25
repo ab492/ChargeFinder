@@ -1,6 +1,6 @@
 import Testing
 import UIKit
-@testable import iosApp
+@testable import Charge_Finder
 
 struct RemoteImageView_Loader_Tests {
     
