@@ -21,9 +21,10 @@ struct DynamicImageGrid: View {
 private struct GridItemView: View {
     let url: URL
     let size: CGSize
+    @Environment(\.imageCache) var imageCache
     
     var body: some View {
-        RemoteImageView(url: url)
+        RemoteImageView(url: url, imageCache: imageCache)
             .scaledToFill()
             .frame(width: size.width, height: size.height)
     }

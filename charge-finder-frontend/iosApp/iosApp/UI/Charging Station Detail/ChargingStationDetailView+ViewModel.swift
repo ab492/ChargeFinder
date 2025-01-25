@@ -1,8 +1,13 @@
 import Observation
 
+protocol ChargingStationDetailViewModel{
+    var state: PageState<ChargingStationDetail> { get }
+    func fetch() async
+}
+
 extension ChargingStationDetailView {
     @Observable
-    class ViewModel {
+    class ViewModel: ChargingStationDetailViewModel {
         
         // MARK: - Properties
         

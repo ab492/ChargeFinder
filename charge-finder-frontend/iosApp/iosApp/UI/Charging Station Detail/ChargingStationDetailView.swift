@@ -1,10 +1,14 @@
 import SwiftUI
 
 struct ChargingStationDetailView: View {
-    @State private var viewModel: ViewModel
+    @State private var viewModel: ChargingStationDetailViewModel
     
     init(id: String) {
         self._viewModel = State(wrappedValue: ViewModel(id: id))
+    }
+    
+    init(viewModel: ChargingStationDetailViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -34,7 +38,7 @@ struct ChargingStationDetailView: View {
     }
 }
 
-#Preview {
-    ChargingStationDetailView(id: "1")
+#Preview("Success State") {
+    let mock = MockPreviewChargingStationDetailViewModel(state: .loaded(.mock))
+    return ChargingStationDetailView(viewModel: mock)
 }
-

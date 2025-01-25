@@ -5,8 +5,8 @@ struct RemoteImageView: View {
     
     @State private var loader: Loader
     
-    init(url: URL) {
-        _loader = State(wrappedValue: Loader(url: url))
+    init(url: URL, imageCache: ImageCacheProtocol) {
+        _loader = State(wrappedValue: Loader(url: url, imageCache: imageCache))
     }
     
     var body: some View {
@@ -56,11 +56,11 @@ extension RemoteImageView {
             self.imageCache = imageCache
         }
         
-        convenience init(url: URL) {
+        convenience init(url: URL, imageCache: ImageCacheProtocol) {
             self.init(
                 url: url,
                 urlSession: URLSession.shared,
-                imageCache: ImageCache.shared
+                imageCache: imageCache
             )
         }
         
@@ -101,7 +101,7 @@ extension RemoteImageView {
 // MARK: - Cache
 
 extension RemoteImageView {
-    private final class ImageCache: ImageCacheProtocol {
+    final class ImageCache: ImageCacheProtocol {
         static let shared = ImageCache()
 
         private init() { }
