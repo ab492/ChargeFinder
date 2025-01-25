@@ -1,7 +1,11 @@
 import SwiftUI
 
 struct ChargingStationListView: View {
-    @State private var viewModel = ViewModel()
+    @State private var viewModel: ChargingStationListViewModel
+    
+    init(viewModel: ChargingStationListViewModel = ViewModel()) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationStack {
@@ -32,4 +36,10 @@ struct ChargingStationListView: View {
         }
         .task { await viewModel.fetchChargingStations() }
     }
+}
+
+
+#Preview {
+    let mock = MockPreviewChargingStationListViewModel(state: .loaded([.mock, .mock, .mock]))
+    return ChargingStationListView(viewModel: mock)
 }

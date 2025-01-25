@@ -1,5 +1,9 @@
 import Foundation
 
 extension ChargingStationListItem {
-    static let mock: ChargingStationListItem = .init(id: "123", title: "Charging Station 1", details: "Details")
+    static let mock: ChargingStationListItem = .init(
+        id: "123",
+        title: "Super Charging Station",
+        details: "707 Redwood Street, Sunnydale"
+    )
 }
