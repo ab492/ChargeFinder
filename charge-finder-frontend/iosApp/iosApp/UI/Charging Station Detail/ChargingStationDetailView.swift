@@ -40,5 +40,9 @@ struct ChargingStationDetailView: View {
 
 #Preview("Success State") {
     let mock = MockPreviewChargingStationDetailViewModel(state: .loaded(.mock))
-    return ChargingStationDetailView(viewModel: mock)
+    let mockImageCache = MockPreviewImageCache()
+    return NavigationStack {
+        ChargingStationDetailView(viewModel: mock)
+            .environment(\.imageCache, mockImageCache)
+    }
 }

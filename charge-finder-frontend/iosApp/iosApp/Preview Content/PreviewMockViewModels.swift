@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class MockPreviewChargingStationListViewModel: ChargingStationListViewModel {
     
@@ -18,4 +18,20 @@ final class MockPreviewChargingStationDetailViewModel: ChargingStationDetailView
     
     var state: PageState<ChargingStationDetail>
     func fetch() async { }
+}
+
+final class MockPreviewImageCache: ImageCacheProtocol {
+    
+    var imagesToReturn: [UIImage] = [
+        UIImage(imageLiteralResourceName: "preview-01"),
+        UIImage(imageLiteralResourceName: "preview-02"),
+        UIImage(imageLiteralResourceName: "preview-03"),
+        UIImage(imageLiteralResourceName: "preview-04")
+    ]
+    
+    func set(image: UIImage, forKey key: URL) { }
+    
+    func value(forKey key: URL) -> UIImage? {
+        imagesToReturn.randomElement()
+    }
 }
