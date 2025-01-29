@@ -3,10 +3,6 @@ import SwiftUI
 struct ChargingStationDetailView: View {
     @State private var viewModel: ChargingStationDetailViewModel
     
-    init(id: String) {
-        self._viewModel = State(wrappedValue: ViewModel(id: id))
-    }
-    
     init(viewModel: ChargingStationDetailViewModel) {
         self.viewModel = viewModel
     }

@@ -34,8 +34,7 @@ extension RemoteImageView {
         case failure
     }
     
-    @Observable
-    final class Loader {
+    @Observable final class Loader {
         
         // MARK: - Properties
 

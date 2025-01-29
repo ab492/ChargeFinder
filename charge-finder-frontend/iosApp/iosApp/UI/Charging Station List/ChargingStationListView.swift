@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct ChargingStationListView: View {
+    @Environment(\.api) var api
     @State private var viewModel: ChargingStationListViewModel
     
-    init(viewModel: ChargingStationListViewModel = ViewModel()) {
+    init(viewModel: ChargingStationListViewModel) {
         self.viewModel = viewModel
     }
     
@@ -29,8 +30,15 @@ struct ChargingStationListView: View {
             .navigationTitle("Charging Stations ⚡️")
             .navigationBarTitleDisplayMode(.inline)
             .background(Color.palette(.background))
-            .navigationDestination(for: ChargingStationListItem.self, destination: { station in
-                ChargingStationDetailView(id: station.id)
+            .navigationDestination(
+                for: ChargingStationListItem.self,
+                destination: { station in
+                    ChargingStationDetailView(
+                        viewModel: ChargingStationDetailView.ViewModel(
+                            id: station.id,
+                            api: api
+                        )
+                    )
             })
             .navigationTitle("Charging Stations")
         }
@@ -38,6 +46,7 @@ struct ChargingStationListView: View {
     }
 }
 
+// MARK: - Previews
 
 #Preview("Success State") {
     let mock = MockPreviewChargingStationListViewModel(state: .loaded([.mock, .mock, .mock]))

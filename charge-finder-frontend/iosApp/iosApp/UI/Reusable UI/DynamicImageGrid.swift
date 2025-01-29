@@ -19,9 +19,9 @@ struct DynamicImageGrid: View {
 }
 
 private struct GridItemView: View {
+    @Environment(\.imageCache) var imageCache
     let url: URL
     let size: CGSize
-    @Environment(\.imageCache) var imageCache
     
     var body: some View {
         RemoteImageView(url: url, imageCache: imageCache)

@@ -6,8 +6,7 @@ protocol ChargingStationDetailViewModel{
 }
 
 extension ChargingStationDetailView {
-    @Observable
-    class ViewModel: ChargingStationDetailViewModel {
+    @Observable class ViewModel: ChargingStationDetailViewModel {
         
         // MARK: - Properties
         
@@ -20,10 +19,6 @@ extension ChargingStationDetailView {
         init(id: String, api: ChargeFinderApi) {
             self.api = api
             self.id = id
-        }
-        
-        convenience init(id: String) {
-            self.init(id: id, api: ChargeFinderApiImpl())
         }
         
         // MARK: - Public
