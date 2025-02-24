@@ -43,10 +43,3 @@ jobs:
 
           # Deploy files using SCP
           scp -i ~/.ssh/id_ed25519 charge-finder-bff/charge-finder-api $SSH_USER@$SSH_HOST:/var/www/charge-finder-api/
-
-          # Set correct permissions and restart service
-          ssh -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST << 'EOF'
-            sudo chmod +x /var/www/charge-finder-api/charge-finder-api
-            sudo systemctl restart charge-finder-api
-            sudo systemctl status charge-finder-api --no-pager --lines=10
-          EOF
