@@ -3,9 +3,9 @@ name: Deploy Charge Finder BFF
 on:
   push:
     branches:
-      - main
+      - [ main ]
     paths:
-      - "charge-finder-bff/**"  # Trigger only if files inside this directory change
+      - "charge-finder-bff/**"
 
 jobs:
   build:

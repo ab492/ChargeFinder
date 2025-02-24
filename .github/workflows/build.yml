@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
+    paths:
+      - "charge-finder-frontend/**" 
+
 
 concurrency:
   # Cancel any in-progress workflows for this workflow/branch combination.
