@@ -1,0 +1,26 @@
+name: Deploy Charge Finder BFF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "charge-finder-bff/**"  # Trigger only if files inside this directory change
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.23
+
+      - name: Build Binary
+        working-directory: charge-finder-bff  # Navigate to the correct directory
+        run: |
+          go build -o my-api
