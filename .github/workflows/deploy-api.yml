@@ -23,4 +23,23 @@ jobs:
       - name: Build Binary
         working-directory: charge-finder-bff  # Navigate to the correct directory
         run: |
-          go build -o my-api
+          go build -o charge-finder-api
+
+          - name: Setup SSH and Deploy
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            SSH_HOST: ${{ secrets.SSH_HOST }}
+            SSH_USER: "charge-finder-api"
+          run: |
+            # Create SSH directory
+            mkdir -p ~/.ssh
+  
+            # Add private key to SSH
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
+  
+            # Add server to known hosts (to prevent manual prompt)
+            ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+  
+            # Deploy files using SCP
+            scp -i ~/.ssh/id_ed25519 charge-finder-bff/charge-finder-api $SSH_USER@$SSH_HOST:/var/www/charge-finder-api/
