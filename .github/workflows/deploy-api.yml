@@ -3,8 +3,7 @@ name: Deploy Charge Finder BFF
 on:
   workflow_dispatch:
   push:
-    branches:
-      - [ main ]
+    branches: [ main ]
     paths:
       - "charge-finder-bff/**"
 
