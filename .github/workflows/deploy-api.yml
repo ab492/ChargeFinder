@@ -25,7 +25,7 @@ jobs:
         run: |
           go build -o charge-finder-api
 
-      - name: Setup SSH and Deploy  # Fix: Now this is a separate step!
+      - name: Setup SSH and Deploy
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
@@ -41,5 +41,20 @@ jobs:
           # Add server to known hosts (to prevent manual prompt)
           ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
-          # Deploy files using SCP
+          # Deploy binary using SCP
           scp -i ~/.ssh/id_ed25519 charge-finder-bff/charge-finder-api $SSH_USER@$SSH_HOST:/var/www/charge-finder-api/
+
+          # Ensure correct permissions and restart API service
+          ssh -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST << 'EOF'
+            sudo chmod +x /var/www/charge-finder-api/charge-finder-api
+            sudo systemctl restart charge-finder-api
+            sudo systemctl status charge-finder-api --no-pager --lines=10
+          EOF
+
+      - name: Verify API is Running
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            SSH_HOST: ${{ secrets.SSH_HOST }}
+            SSH_USER: "charge-finder-api"
+        run: |
+            ssh -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST "curl -s http://localhost:8080/ || exit 1"

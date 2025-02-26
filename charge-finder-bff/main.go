@@ -51,7 +51,7 @@ func getChargingStationDetail(c *gin.Context) {
 	// Try to find the charging station by ID
 	station := models.StationByID(id)
 	if station == nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Charging station not found"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Charging station not found TEST"})
 		return
 	}
 
