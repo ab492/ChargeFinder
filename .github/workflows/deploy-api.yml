@@ -25,6 +25,14 @@ jobs:
         run: |
           go build -o charge-finder-api
 
+      - name: Stop Service Before Deployment
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            SSH_HOST: ${{ secrets.SSH_HOST }}
+            SSH_USER: "charge-finder-api"
+        run: |
+            ssh -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST "sudo systemctl stop charge-finder-api"
+
       - name: Setup SSH and Deploy
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
